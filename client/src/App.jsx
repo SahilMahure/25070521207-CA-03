@@ -1,29 +1,83 @@
-import About from './about';
-import Home from './home';
-import { Routes,Route } from 'react-router-dom';
-import Services from './services';
-import Contact from './contact';
-import Nav from './nav';
+import { Routes, Route, Navigate } from "react-router-dom";
+import { AuthProvider } from "./context/AuthContext";
+import { CartProvider } from "./context/CartContext";
+
+// Components
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import ProtectedRoute from "./components/ProtectedRoute";
+
+// Pages
+import LandingPage from "./pages/LandingPage";
+import SignUpPage from "./pages/SignUpPage";
+import LoginPage from "./pages/LoginPage";
+import MenuPage from "./pages/MenuPage";
+import CartPage from "./pages/CartPage";
+import ReservationPage from "./pages/ReservationPage";
+import ProfilePage from "./pages/ProfilePage";
+import AboutPage from "./pages/AboutPage";
+import NotFoundPage from "./pages/NotFoundPage";
 
 const App = () => {
-
   return (
+    <AuthProvider>
+      <CartProvider>
+        <div style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
+          <Navbar />
 
-    <>
+          <main style={{ flex: 1 }}>
+            <Routes>
+              {/* Public Pages */}
+              <Route path="/" element={<LandingPage />} />
+              <Route path="/signup" element={<SignUpPage />} />
+              <Route path="/login" element={<LoginPage />} />
+              <Route path="/about" element={<AboutPage />} />
+              <Route path="/contact" element={<Navigate to="/about" replace />} />
 
-      <Nav/>
-    
-      <Routes>
+              {/* Protected Flow */}
+              <Route
+                path="/menu"
+                element={
+                  <ProtectedRoute>
+                    <MenuPage />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/cart"
+                element={
+                  <ProtectedRoute>
+                    <CartPage />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/reservation"
+                element={
+                  <ProtectedRoute>
+                    <ReservationPage />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/profile"
+                element={
+                  <ProtectedRoute>
+                    <ProfilePage />
+                  </ProtectedRoute>
+                }
+              />
 
-        <Route path = "/" element = {<Home/>}></Route>
-        <Route path = "/about" element = {<About/>}></Route>
-        <Route path = "/services" element = {<Services/>}></Route>
-        <Route path = "/contact" element = {<Contact/>}></Route>
+              {/* 404 Route */}
+              <Route path="*" element={<NotFoundPage />} />
+            </Routes>
+          </main>
 
-      </Routes>
-    
-    </>
-  )
-}
+          <Footer />
+        </div>
+      </CartProvider>
+    </AuthProvider>
+  );
+};
 
 export default App;
