@@ -1,98 +1,86 @@
-.input-group-container {
+/* ── Nocturne Atelier Input ───────────────────────────── */
+.na-input-group {
   display: flex;
   flex-direction: column;
-  margin-bottom: 20px;
-  text-align: left;
+  gap: 6px;
+  margin-bottom: 18px;
 }
 
-.input-label {
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--color-coffee-dark);
-  margin-bottom: 6px;
+.na-input-label {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-mono-sm);
+  line-height: var(--lh-label-mono-sm);
+  letter-spacing: var(--ls-label-mono-sm);
+  text-transform: uppercase;
+  color: var(--na-outline);
 }
 
-.input-required {
-  color: var(--color-danger);
-}
+.na-input-required { color: var(--na-primary-cnt); }
 
-.input-wrapper {
+.na-input-wrap {
   position: relative;
   display: flex;
   align-items: center;
 }
 
-.input-field {
+.na-input-field {
   width: 100%;
+  background: var(--na-bg-lowest);
+  border: 1px solid var(--na-outline-var);
+  border-radius: var(--r-lg);
   padding: 12px 16px;
-  font-size: 0.95rem;
-  color: var(--color-text-main);
-  background-color: #fff;
-  border: 1.5px solid var(--color-border);
-  border-radius: var(--radius-md);
-  transition: all var(--transition-fast);
+  font-family: var(--font-sans);
+  font-size: var(--fs-body-md);
+  color: var(--na-on-surface);
+  transition: border-color var(--t-fast), box-shadow var(--t-fast);
   outline: none;
 }
 
-.input-field:focus {
-  border-color: var(--color-accent);
-  box-shadow: 0 0 0 3px var(--color-accent-glow);
+.na-input-field::placeholder { color: var(--na-outline); }
+.na-input-field:focus {
+  border-color: var(--na-secondary);
+  box-shadow: 0 0 0 1px var(--na-secondary);
 }
 
-.input-field.has-icon-left {
-  padding-left: 42px;
+.na-input-group--error .na-input-field {
+  border-color: var(--na-error-cnt);
+  box-shadow: 0 0 0 1px var(--na-error-cnt);
 }
 
-.input-field.has-toggle {
-  padding-right: 42px;
-}
+.na-input-field--icon { padding-left: 44px; }
+.na-input-field--pwd  { padding-right: 44px; }
 
-.input-icon-left {
+.na-input-icon {
   position: absolute;
   left: 14px;
+  color: var(--na-outline);
+  pointer-events: none;
   display: flex;
   align-items: center;
-  color: var(--color-text-light);
-  pointer-events: none;
 }
 
-.input-password-toggle {
+.na-input-pwd-toggle {
   position: absolute;
   right: 14px;
   background: none;
   border: none;
-  color: var(--color-text-muted);
   cursor: pointer;
+  color: var(--na-outline);
   display: flex;
   align-items: center;
-  padding: 4px;
+  transition: color var(--t-fast);
 }
+.na-input-pwd-toggle:hover { color: var(--na-on-surface); }
 
-.input-password-toggle:hover {
-  color: var(--color-coffee-dark);
-}
-
-.has-error .input-field {
-  border-color: var(--color-danger);
-  background-color: #fff9f9;
-}
-
-.has-error .input-field:focus {
-  box-shadow: 0 0 0 3px rgba(198, 40, 40, 0.2);
-}
-
-.input-error-msg {
+.na-input-error {
   display: flex;
   align-items: center;
-  gap: 6px;
-  color: var(--color-danger);
-  font-size: 0.82rem;
-  margin-top: 6px;
-  font-weight: 500;
+  gap: 5px;
+  font-size: var(--fs-body-sm);
+  color: var(--na-error);
 }
 
-.input-helper-text {
-  color: var(--color-text-light);
-  font-size: 0.82rem;
-  margin-top: 5px;
+.na-input-helper {
+  font-size: var(--fs-body-sm);
+  color: var(--na-outline);
 }

@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,300..900;1,300..900&amp;family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface-dim":"#17120f","on-background":"#ece0db","surface-tint":"#ffb59f","tertiary-fixed":"#eee1ce","on-surface":"#ece0db","on-tertiary-fixed":"#211b0f","on-primary-fixed-variant":"#862300","surface":"#17120f","on-tertiary-container":"#30291c","inverse-on-surface":"#352f2c","primary-fixed-dim":"#ffb59f","on-primary":"#5f1600","surface-container-highest":"#3a3330","surface-container-low":"#201a17","secondary-fixed":"#ffddb5","on-error":"#690005","background":"#17120f","surface-bright":"#3f3834","on-primary-container":"#531200","tertiary-fixed-dim":"#d1c5b3","inverse-surface":"#ece0db","on-surface-variant":"#e1bfb6","secondary-fixed-dim":"#ffb956","inverse-primary":"#ae3204","on-secondary-fixed":"#2a1800","on-error-container":"#ffdad6","on-secondary-container":"#3d2500","error":"#ffb4ab","surface-container-high":"#2f2925","outline-variant":"#59413a","primary":"#ffb59f","error-container":"#93000a","secondary-container":"#c3841e","secondary":"#ffb956","surface-container":"#241e1b","tertiary":"#d1c5b3","primary-container":"#f36336","on-tertiary-fixed-variant":"#4e4638","on-primary-fixed":"#3a0a00","tertiary-container":"#9a8f7f","outline":"#a88a81","on-tertiary":"#362f23","surface-container-lowest":"#120d0a","on-secondary-fixed-variant":"#643f00","on-secondary":"#462b00","surface-variant":"#3a3330","primary-fixed":"#ffdbd1"},borderRadius:{DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem",full:"9999px"},spacing:{"space-sm":"0.5rem","margin-desktop":"5rem","space-lg":"1.75rem",gutter:"1.5rem",margin:"1.25rem","gutter-desktop":"2.5rem","margin-tablet":"2.5rem","space-md":"1rem","space-xs":"0.25rem","space-xl":"3rem"},fontFamily:{"headline-lg-mobile":["Newsreader"],"body-lg":["Hanken Grotesk"],"body-sm":["Hanken Grotesk"],"title-sm":["Hanken Grotesk"],"display-hero-mobile":["Newsreader"],"display-hero":["Newsreader"],"badge-caps":["Hanken Grotesk"],"headline-lg":["Newsreader"],"display-xl":["Newsreader"],"label-mono":["Space Mono"],"body-md":["Hanken Grotesk"],"headline-md":["Newsreader"],"label-mono-sm":["Space Mono"],"display-xl-mobile":["Newsreader"]},fontSize:{"headline-lg-mobile":["30px",{lineHeight:"36px",letterSpacing:"-0.01em",fontWeight:"400"}],"body-lg":["18px",{lineHeight:"28px",letterSpacing:"0em",fontWeight:"400"}],"body-sm":["13px",{lineHeight:"20px",letterSpacing:"0.01em",fontWeight:"400"}],"title-sm":["20px",{lineHeight:"28px",letterSpacing:"-0.01em",fontWeight:"600"}],"display-hero-mobile":["52px",{lineHeight:"54px",letterSpacing:"-0.02em",fontWeight:"400"}],"display-hero":["112px",{lineHeight:"104px",letterSpacing:"-0.03em",fontWeight:"400"}],"badge-caps":["11px",{lineHeight:"14px",letterSpacing:"0.12em",fontWeight:"700"}],"headline-lg":["44px",{lineHeight:"50px",letterSpacing:"-0.02em",fontWeight:"400"}],"display-xl":["72px",{lineHeight:"76px",letterSpacing:"-0.025em",fontWeight:"400"}],"label-mono":["13px",{lineHeight:"18px",letterSpacing:"0.04em",fontWeight:"400"}],"body-md":["15px",{lineHeight:"24px",letterSpacing:"0.005em",fontWeight:"400"}],"headline-md":["28px",{lineHeight:"34px",letterSpacing:"-0.01em",fontWeight:"500"}],"label-mono-sm":["11px",{lineHeight:"14px",letterSpacing:"0.06em",fontWeight:"400"}],"display-xl-mobile":["40px",{lineHeight:"44px",letterSpacing:"-0.02em",fontWeight:"400"}]}}}};</script></head><body class="bg-background font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-fixed"><header class="fixed top-0 inset-x-0 z-50 bg-surface-container-lowest/85 backdrop-blur-xl shadow-[0_16px_36px_-12px_rgba(0,0,0,0.65)]"><div class="h-20 max-w-[1440px] mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop flex items-center justify-between gap-gutter"><div class="flex items-center gap-space-md"><img alt="Nocturne Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1VTSe-bmttyxcS49cgLim6QVPEI8kfKECCmREq-V-FpNMjHz3owMdEh30Q8oT9jrO-PcbmG16uiMdbLsiNeGMqUJjrXsEqx2x0rWk2MxUB7Qesq88nW2J6roLqxGp2ZTplAmAlC1mKDCu_gqdeHr6kh4EVryDItrquzmzy_BE3lztQAXAiVbAso4JIoDh7XV5pKsyg6Gn5UcBKzpdt5_pZjAtS5hYAIt0ZypabCG0fRDw"/><span class="font-headline-md text-headline-md tracking-tight text-on-surface">Nocturne Atelier</span></div><nav class="hidden lg:flex items-center gap-space-lg" data-active-classes="text-primary font-title-sm tracking-wide"><a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors duration-200" data-path="menu" href="#">Menu</a><a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors duration-200" data-path="reserve" href="#">Reserve</a><a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors duration-200" data-path="about" href="#">About</a><a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors duration-200" data-path="journal" href="#">Journal</a><a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors duration-200" data-path="story" href="#">Story</a></nav><div class="flex items-center gap-space-md"><a class="flex items-center gap-space-xs px-space-sm py-space-xs rounded-full bg-surface-container-high hover:bg-surface-container-highest transition-colors duration-200" data-path="cart" href="#"><span class="material-symbols-outlined text-[20px] text-on-surface">local_cafe</span><span class="font-label-mono text-label-mono text-primary-container font-bold">[3]</span></a><a class="hidden sm:inline-flex items-center justify-center px-space-md py-space-xs rounded-full bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-body-sm text-body-sm transition-colors duration-200" data-path="account" href="#">Sign In / Profile</a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shadow-inner"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-20 bg-background min-h-screen"><div class="flex flex-col w-full">
+<!-- Subtle Amber Ambient Atmosphere -->
+<div class="relative w-full overflow-hidden">
+<div class="absolute -top-32 left-1/4 w-96 h-96 bg-primary-container/10 rounded-full blur-[140px] pointer-events-none"></div>
+<div class="absolute top-96 right-10 w-[500px] h-[500px] bg-secondary/5 rounded-full blur-[160px] pointer-events-none"></div>
+<!-- Editorial Header Strip -->
+<section class="max-w-[1440px] mx-auto w-full px-margin md:px-margin-tablet lg:px-margin-desktop pt-8 pb-12">
+<div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-8 border-b border-outline-variant/30">
+<div class="space-y-3 max-w-3xl">
+<div class="flex items-center gap-3">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-high text-secondary font-label-mono-sm text-label-mono-sm uppercase tracking-widest">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container animate-pulse"></span>
+              Live Allocation Folio
+            </span>
+<span class="font-label-mono-sm text-label-mono-sm text-outline tracking-wider uppercase">Protocol · Ref 884-R</span>
+</div>
+<h1 class="font-display-xl text-display-xl-mobile lg:text-display-xl text-on-surface tracking-tight leading-none">
+            Salon Table <span class="italic font-normal text-primary">Protocols</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl leading-relaxed">
+            Curated seating for midnight thinkers, vinyl listeners, and nocturnal coffee flights. Unhurried hospitality beneath tungsten filaments.
+          </p>
+</div>
+<div class="bg-surface-container-low p-4 rounded-xl shadow-lg border border-outline-variant/30 flex flex-col sm:flex-row items-start sm:items-center gap-4 text-left">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[20px]">graphic_eq</span>
+</div>
+<div>
+<div class="font-label-mono-sm text-label-mono-sm text-secondary uppercase tracking-widest">Acoustic Service Window</div>
+<div class="font-label-mono text-label-mono text-on-surface font-medium">18:00 — 04:00 <span class="text-outline">/</span> LIVE VINYL 22:00</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Main Booking Matrix: Two Column Editorial Division -->
+<section class="max-w-[1440px] mx-auto w-full px-margin md:px-margin-tablet lg:px-margin-desktop pb-24">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-gutter-desktop items-start">
+<!-- Left 7 Columns: Controls, Session Selection & Blueprint -->
+<div class="lg:col-span-7 flex flex-col gap-10">
+<!-- Step 01: Date and Party Size -->
+<div class="bg-surface-container-low p-6 sm:p-8 rounded-xl border border-outline-variant/30 shadow-md space-y-6">
+<div class="flex items-center justify-between">
+<span class="font-label-mono-sm text-label-mono-sm text-secondary uppercase tracking-widest">[01] Date &amp; Cohort</span>
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant">Calender Window · October 2024</span>
+</div>
+<!-- Date Scroller -->
+<div class="flex items-center gap-3 overflow-x-auto pb-2 scrollbar-none" id="date-selector">
+<button class="date-pill group flex-shrink-0 flex flex-col items-center justify-center w-20 py-3.5 rounded-lg bg-primary-container text-on-primary transition-all duration-200 shadow-md" data-date="Thu, Oct 24" type="button">
+<span class="font-label-mono-sm text-label-mono-sm uppercase tracking-wider font-bold">Today</span>
+<span class="font-headline-md text-headline-md font-bold leading-none mt-1">24</span>
+<span class="font-label-mono-sm text-label-mono-sm opacity-80 mt-1">OCT</span>
+</button>
+<button class="date-pill group flex-shrink-0 flex flex-col items-center justify-center w-20 py-3.5 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface-variant hover:text-on-surface border border-outline-variant/30 transition-all duration-200" data-date="Fri, Oct 25" type="button">
+<span class="font-label-mono-sm text-label-mono-sm uppercase tracking-wider">Fri</span>
+<span class="font-headline-md text-headline-md leading-none mt-1">25</span>
+<span class="font-label-mono-sm text-label-mono-sm text-outline mt-1">OCT</span>
+</button>
+<button class="date-pill group flex-shrink-0 flex flex-col items-center justify-center w-20 py-3.5 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface-variant hover:text-on-surface border border-outline-variant/30 transition-all duration-200" data-date="Sat, Oct 26" type="button">
+<span class="font-label-mono-sm text-label-mono-sm uppercase tracking-wider">Sat</span>
+<span class="font-headline-md text-headline-md leading-none mt-1">26</span>
+<span class="font-label-mono-sm text-label-mono-sm text-outline mt-1">OCT</span>
+</button>
+<button class="date-pill group flex-shrink-0 flex flex-col items-center justify-center w-20 py-3.5 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface-variant hover:text-on-surface border border-outline-variant/30 transition-all duration-200" data-date="Sun, Oct 27" type="button">
+<span class="font-label-mono-sm text-label-mono-sm uppercase tracking-wider">Sun</span>
+<span class="font-headline-md text-headline-md leading-none mt-1">27</span>
+<span class="font-label-mono-sm text-label-mono-sm text-outline mt-1">OCT</span>
+</button>
+<button class="date-pill group flex-shrink-0 flex flex-col items-center justify-center w-20 py-3.5 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface-variant hover:text-on-surface border border-outline-variant/30 transition-all duration-200" data-date="Mon, Oct 28" type="button">
+<span class="font-label-mono-sm text-label-mono-sm uppercase tracking-wider">Mon</span>
+<span class="font-headline-md text-headline-md leading-none mt-1">28</span>
+<span class="font-label-mono-sm text-label-mono-sm text-outline mt-1">OCT</span>
+</button>
+</div>
+<!-- Guest Stepper & Policy Callout -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-4 border-t border-outline-variant/30">
+<div class="space-y-1">
+<span class="font-body-md text-body-md text-on-surface font-medium block">Party Size</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Solitude counters or collective alcoves</span>
+</div>
+<div class="flex items-center gap-3">
+<button aria-label="Decrease guest count" class="w-10 h-10 rounded-full bg-surface-container-high hover:bg-surface-container-highest text-on-surface flex items-center justify-center border border-outline-variant/40 transition-colors" id="guest-dec" type="button">
+<span class="material-symbols-outlined text-[18px]">remove</span>
+</button>
+<div class="flex items-center justify-center min-w-16">
+<span class="font-headline-md text-headline-md text-on-surface font-semibold tracking-tighter" id="guest-count">02</span>
+<span class="font-label-mono-sm text-label-mono-sm text-secondary ml-1">GUESTS</span>
+</div>
+<button aria-label="Increase guest count" class="w-10 h-10 rounded-full bg-surface-container-high hover:bg-surface-container-highest text-on-surface flex items-center justify-center border border-outline-variant/40 transition-colors" id="guest-inc" type="button">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Step 02: Nocturnal Time Windows -->
+<div class="bg-surface-container-low p-6 sm:p-8 rounded-xl border border-outline-variant/30 shadow-md space-y-6">
+<div class="flex items-center justify-between">
+<span class="font-label-mono-sm text-label-mono-sm text-secondary uppercase tracking-widest">[02] Extraction Session</span>
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant">Duration: 90 Minutes</span>
+</div>
+<div class="space-y-5" id="time-sessions">
+<!-- Twilight Brews -->
+<div class="space-y-2.5">
+<div class="flex items-center justify-between">
+<span class="font-label-mono text-label-mono text-on-surface font-medium">Twilight Brews</span>
+<span class="font-label-mono-sm text-label-mono-sm text-outline">18:00 — 21:00</span>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+<button class="time-slot px-4 py-2.5 rounded-lg bg-surface-container-high hover:bg-surface-container-highest border border-outline-variant/30 text-on-surface font-label-mono text-label-mono text-center transition-all duration-200" data-time="18:00" type="button">18:00</button>
+<button class="time-slot px-4 py-2.5 rounded-lg bg-surface-container-high hover:bg-surface-container-highest border border-outline-variant/30 text-on-surface font-label-mono text-label-mono text-center transition-all duration-200" data-time="18:30" type="button">18:30</button>
+<button class="px-4 py-2.5 rounded-lg bg-surface-container-lowest/60 text-outline cursor-not-allowed font-label-mono text-label-mono text-center line-through opacity-50" disabled="" type="button">19:15</button>
+<button class="time-slot px-4 py-2.5 rounded-lg bg-surface-container-high hover:bg-surface-container-highest border border-outline-variant/30 text-on-surface font-label-mono text-label-mono text-center transition-all duration-200" data-time="20:00" type="button">20:00</button>
+</div>
+</div>
+<!-- Deep Midnight -->
+<div class="space-y-2.5 pt-3 border-t border-outline-variant/20">
+<div class="flex items-center justify-between">
+<span class="font-label-mono text-label-mono text-secondary font-medium flex items-center gap-2">
+                    Deep Midnight
+                    <span class="px-2 py-0.5 rounded-full bg-secondary/10 text-secondary font-label-mono-sm text-label-mono-sm">Analog Set</span>
+</span>
+<span class="font-label-mono-sm text-label-mono-sm text-outline">21:30 — 01:00</span>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+<button class="time-slot px-4 py-2.5 rounded-lg bg-surface-container-high hover:bg-surface-container-highest border border-outline-variant/30 text-on-surface font-label-mono text-label-mono text-center transition-all duration-200" data-time="21:30" type="button">21:30</button>
+<button class="time-slot px-4 py-2.5 rounded-lg bg-primary-container text-on-primary font-bold shadow-md border border-primary font-label-mono text-label-mono text-center transition-all duration-200" data-time="22:15" type="button">22:15</button>
+<button class="time-slot px-4 py-2.5 rounded-lg bg-surface-container-high hover:bg-surface-container-highest border border-outline-variant/30 text-on-surface font-label-mono text-label-mono text-center transition-all duration-200" data-time="23:00" type="button">23:00</button>
+<button class="time-slot px-4 py-2.5 rounded-lg bg-surface-container-high hover:bg-surface-container-highest border border-outline-variant/30 text-on-surface font-label-mono text-label-mono text-center transition-all duration-200 flex flex-col items-center justify-center" data-time="00:00" type="button">
+<span>00:00</span>
+<span class="text-[9px] uppercase tracking-tighter text-secondary">Flight</span>
+</button>
+</div>
+</div>
+<!-- Late Nocturne -->
+<div class="space-y-2.5 pt-3 border-t border-outline-variant/20">
+<div class="flex items-center justify-between">
+<span class="font-label-mono text-label-mono text-on-surface font-medium">Late Nocturne</span>
+<span class="font-label-mono-sm text-label-mono-sm text-outline">01:30 — 03:30</span>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+<button class="time-slot px-4 py-2.5 rounded-lg bg-surface-container-high hover:bg-surface-container-highest border border-outline-variant/30 text-on-surface font-label-mono text-label-mono text-center transition-all duration-200" data-time="01:30" type="button">01:30</button>
+<button class="time-slot px-4 py-2.5 rounded-lg bg-surface-container-high hover:bg-surface-container-highest border border-outline-variant/30 text-on-surface font-label-mono text-label-mono text-center transition-all duration-200" data-time="02:15" type="button">02:15</button>
+<button class="time-slot px-4 py-2.5 rounded-lg bg-surface-container-high hover:bg-surface-container-highest border border-outline-variant/30 text-on-surface font-label-mono text-label-mono text-center transition-all duration-200" data-time="03:00" type="button">03:00</button>
+<button class="px-4 py-2.5 rounded-lg bg-surface-container-lowest/60 text-outline cursor-not-allowed font-label-mono text-label-mono text-center line-through opacity-50" disabled="" type="button">03:30</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Step 03: Interactive Salon Floor Blueprint -->
+<div class="bg-surface-container-low p-6 sm:p-8 rounded-xl border border-outline-variant/30 shadow-md space-y-6">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+<div>
+<span class="font-label-mono-sm text-label-mono-sm text-secondary uppercase tracking-widest block">[03] Salon Spatial Plan</span>
+<span class="font-headline-md text-headline-md text-on-surface mt-1 block">Choose Your Sanctuary</span>
+</div>
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant self-start sm:self-auto">Scale 1:50 · Tungsten Mode</span>
+</div>
+<!-- Blueprint Map Canvas -->
+<div class="relative w-full aspect-[4/3] bg-surface-container-lowest rounded-xl p-4 sm:p-6 overflow-hidden border border-outline-variant/40 shadow-inner flex flex-col justify-between">
+<!-- Architectural grid lines background -->
+<div class="absolute inset-0 bg-[radial-gradient(#3a3330_1px,transparent_1px)] [background-size:20px_20px] opacity-35 pointer-events-none"></div>
+<!-- Top Zone: Espresso Bar / Slayer Station -->
+<div class="relative z-10 bg-surface-container/70 rounded-lg p-3 border border-outline-variant/30 flex items-center justify-between">
+<div>
+<span class="font-label-mono-sm text-label-mono-sm text-secondary uppercase tracking-wider block">The Espresso Bar</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Slayer Custom Station · Chemex Flight Counter</span>
+</div>
+<!-- Bar Seat Capsules -->
+<div class="flex items-center gap-2" id="bar-seats">
+<button class="table-node w-8 h-8 rounded-full bg-surface-container-high border border-outline-variant/50 hover:border-secondary flex items-center justify-center font-label-mono-sm text-label-mono-sm text-on-surface transition-all" data-cap="1 Seat" data-id="B-01" data-name="Bar Slayer Slot 1" data-zone="Espresso Bar" type="button">1</button>
+<button class="table-node w-8 h-8 rounded-full bg-surface-container-high border border-outline-variant/50 hover:border-secondary flex items-center justify-center font-label-mono-sm text-label-mono-sm text-on-surface transition-all" data-cap="1 Seat" data-id="B-02" data-name="Bar Slayer Slot 2" data-zone="Espresso Bar" type="button">2</button>
+<button class="table-node w-8 h-8 rounded-full bg-surface-container-highest/40 text-outline cursor-not-allowed flex items-center justify-center font-label-mono-sm text-label-mono-sm opacity-40" disabled="" title="Occupied" type="button">3</button>
+<button class="table-node w-8 h-8 rounded-full bg-surface-container-high border border-outline-variant/50 hover:border-secondary flex items-center justify-center font-label-mono-sm text-label-mono-sm text-on-surface transition-all" data-cap="1 Seat" data-id="B-04" data-name="Bar Chemex Slot 4" data-zone="Espresso Bar" type="button">4</button>
+</div>
+</div>
+<!-- Center Zone: Vinyl Alcove & Listening Lounge -->
+<div class="relative z-10 grid grid-cols-1 sm:grid-cols-2 gap-4 my-3">
+<!-- Vinyl Alcove (Left) -->
+<div class="bg-surface-container/50 rounded-lg p-3 border border-secondary/30 relative">
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-mono-sm text-label-mono-sm text-secondary uppercase flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-ping"></span>
+                      Vinyl Library
+                    </span>
+<span class="font-label-mono-sm text-label-mono-sm text-outline">Garrard 301</span>
+</div>
+<!-- Table T-04 Selected by Default -->
+<div class="flex items-center gap-3">
+<button class="table-node selected flex-1 py-3 px-3 rounded-lg bg-primary-container text-on-primary font-label-mono-sm text-label-mono-sm flex flex-col items-center justify-center shadow-lg border border-primary transition-all duration-200" data-cap="2-4 Seats" data-id="T-04" data-name="Vinyl Alcove Booth" data-zone="Vinyl Library" type="button">
+<span class="font-bold">TABLE 04</span>
+<span class="text-[10px] opacity-90">Vinyl Booth · Selected</span>
+</button>
+<button class="table-node flex-1 py-3 px-3 rounded-lg bg-surface-container-high hover:border-secondary border border-outline-variant/40 text-on-surface font-label-mono-sm text-label-mono-sm flex flex-col items-center justify-center transition-all duration-200" data-cap="2 Seats" data-id="T-05" data-name="Acoustic Corner" data-zone="Vinyl Library" type="button">
+<span>TABLE 05</span>
+<span class="text-[10px] text-on-surface-variant">Corner · 2 Seats</span>
+</button>
+</div>
+</div>
+<!-- Midnight Solitude Nooks (Right) -->
+<div class="bg-surface-container/50 rounded-lg p-3 border border-outline-variant/30 flex flex-col justify-between">
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant uppercase">Solitude Nooks</span>
+<span class="font-label-mono-sm text-label-mono-sm text-outline">Reading Lamps</span>
+</div>
+<div class="grid grid-cols-2 gap-2">
+<button class="table-node py-2 rounded-lg bg-surface-container-high hover:border-secondary border border-outline-variant/40 text-on-surface font-label-mono-sm text-label-mono-sm text-center transition-all" data-cap="1 Seat" data-id="S-01" data-name="Solitude Nook A" data-zone="Midnight Solitude" type="button">
+                      S-01 <span class="text-[10px] text-on-surface-variant block">1 Seat</span>
+</button>
+<button class="table-node py-2 rounded-lg bg-surface-container-highest/40 text-outline cursor-not-allowed font-label-mono-sm text-label-mono-sm text-center opacity-40" disabled="" type="button">
+                      S-02 <span class="text-[10px] block">Occupied</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Bottom Zone: Subterranean Banquettes -->
+<div class="relative z-10 bg-surface-container/70 rounded-lg p-3 border border-outline-variant/30 flex flex-col sm:flex-row items-center justify-between gap-3">
+<div>
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface uppercase tracking-wider block">Subterranean Banquettes</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Low Velvet Booths · Group Coffee Rituals</span>
+</div>
+<div class="flex items-center gap-2 w-full sm:w-auto">
+<button class="table-node flex-1 sm:flex-initial px-3 py-2 rounded-lg bg-surface-container-high hover:border-secondary border border-outline-variant/40 text-on-surface font-label-mono-sm text-label-mono-sm text-center transition-all" data-cap="4 Seats" data-id="B-07" data-name="Library Banquette 07" data-zone="Subterranean Banquette" type="button">
+                    B-07 · 4P
+                  </button>
+<button class="table-node flex-1 sm:flex-initial px-3 py-2 rounded-lg bg-surface-container-high hover:border-secondary border border-outline-variant/40 text-on-surface font-label-mono-sm text-label-mono-sm text-center transition-all" data-cap="6 Seats" data-id="B-08" data-name="Grand Salon Banquette" data-zone="Subterranean Banquette" type="button">
+                    B-08 · 6P
+                  </button>
+</div>
+</div>
+</div>
+<!-- Floor Plan Legend -->
+<div class="flex flex-wrap items-center justify-between gap-4 pt-2 border-t border-outline-variant/20 font-label-mono-sm text-label-mono-sm text-on-surface-variant">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded bg-surface-container-high border border-outline-variant"></span>
+<span>Available</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded bg-primary-container"></span>
+<span class="text-on-surface">Selected</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded bg-surface-container-highest opacity-40"></span>
+<span class="line-through">Reserved</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
+<span class="text-secondary">Vinyl Zone</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Right 5 Columns: The Tactile Boarding Pass & Folio Checkout -->
+<div class="lg:col-span-5 sticky top-28 space-y-6">
+<!-- Physical Editorial Boarding Pass Motif -->
+<div class="relative bg-tertiary-fixed text-on-tertiary-fixed rounded-xl overflow-hidden shadow-2xl transition-all">
+<!-- Cutout notched edges effect -->
+<div class="absolute -left-3 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-background z-20"></div>
+<div class="absolute -right-3 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-background z-20"></div>
+<!-- Pass Top Section -->
+<div class="p-6 sm:p-8 space-y-5">
+<div class="flex items-start justify-between border-b border-on-tertiary-fixed/15 pb-4">
+<div>
+<span class="font-label-mono-sm text-label-mono-sm tracking-widest uppercase opacity-70 block">Nocturne Atelier Salon</span>
+<span class="font-headline-md text-headline-md font-semibold tracking-tight text-on-tertiary-fixed">Folio Pass #NC-8842</span>
+</div>
+<div class="w-10 h-10 rounded-full border border-on-tertiary-fixed/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">local_cafe</span>
+</div>
+</div>
+<!-- Metadata Grid -->
+<div class="grid grid-cols-2 gap-4 font-label-mono">
+<div>
+<span class="font-label-mono-sm text-label-mono-sm opacity-60 block uppercase">Assigned Date</span>
+<span class="font-label-mono text-label-mono font-bold text-on-tertiary-fixed" id="ticket-date">Thu, Oct 24</span>
+</div>
+<div>
+<span class="font-label-mono-sm text-label-mono-sm opacity-60 block uppercase">Service Window</span>
+<span class="font-label-mono text-label-mono font-bold text-primary-container" id="ticket-time">22:15 (Vinyl Set)</span>
+</div>
+<div>
+<span class="font-label-mono-sm text-label-mono-sm opacity-60 block uppercase">Table Allotment</span>
+<span class="font-label-mono text-label-mono font-bold text-on-tertiary-fixed" id="ticket-table">T-04 (Vinyl Alcove)</span>
+</div>
+<div>
+<span class="font-label-mono-sm text-label-mono-sm opacity-60 block uppercase">Cover Count</span>
+<span class="font-label-mono text-label-mono font-bold text-on-tertiary-fixed" id="ticket-guests">02 Guests</span>
+</div>
+</div>
+<div class="pt-2 font-label-mono-sm text-label-mono-sm opacity-80 border-t border-on-tertiary-fixed/15">
+<div class="flex justify-between py-1">
+<span>Minimum Spend Guarantee:</span>
+<span class="font-bold">₹500 / Guest</span>
+</div>
+<div class="flex justify-between py-1 text-primary-container font-semibold">
+<span>Redeemable Against Roasts:</span>
+<span>100% Fully Credited</span>
+</div>
+</div>
+</div>
+<!-- Perforated Tear Line -->
+<div class="relative py-1 flex items-center justify-between px-6 border-y border-dashed border-on-tertiary-fixed/30 bg-tertiary-fixed-dim/40">
+<span class="font-label-mono-sm text-label-mono-sm uppercase tracking-widest opacity-60">Perforation Slip</span>
+<span class="font-label-mono-sm text-label-mono-sm uppercase tracking-wider opacity-60">MMXXIV · Atelier Release</span>
+</div>
+<!-- Pass Bottom Section: Barcode & Confirmation -->
+<div class="p-6 sm:p-8 bg-tertiary-fixed space-y-6">
+<!-- Special Request Notes Field -->
+<div class="space-y-1.5">
+<label class="font-label-mono-sm text-label-mono-sm uppercase tracking-wider opacity-70 block" for="reservation-notes">Bespoke Preparation Requests</label>
+<input class="w-full bg-tertiary-fixed-dim/50 border border-on-tertiary-fixed/20 rounded-lg px-3 py-2 text-on-tertiary-fixed placeholder:text-on-tertiary-fixed/40 font-body-sm text-body-sm focus:outline-none focus:border-on-tertiary-fixed transition-colors" id="reservation-notes" placeholder="e.g. Near vacuum tube amp, warm water service..." type="text"/>
+</div>
+<!-- Barcode Mockup (Inline SVG) -->
+<div class="py-2 flex flex-col items-center gap-1.5 opacity-80">
+<svg class="w-full h-10" fill="currentColor" viewbox="0 0 280 40">
+<rect height="40" width="3" x="0" y="0"></rect>
+<rect height="40" width="1" x="5" y="0"></rect>
+<rect height="40" width="4" x="8" y="0"></rect>
+<rect height="40" width="2" x="15" y="0"></rect>
+<rect height="40" width="6" x="19" y="0"></rect>
+<rect height="40" width="1" x="28" y="0"></rect>
+<rect height="40" width="3" x="31" y="0"></rect>
+<rect height="40" width="2" x="37" y="0"></rect>
+<rect height="40" width="5" x="42" y="0"></rect>
+<rect height="40" width="2" x="50" y="0"></rect>
+<rect height="40" width="1" x="54" y="0"></rect>
+<rect height="40" width="4" x="58" y="0"></rect>
+<rect height="40" width="3" x="65" y="0"></rect>
+<rect height="40" width="1" x="71" y="0"></rect>
+<rect height="40" width="5" x="75" y="0"></rect>
+<rect height="40" width="2" x="83" y="0"></rect>
+<rect height="40" width="6" x="88" y="0"></rect>
+<rect height="40" width="1" x="97" y="0"></rect>
+<rect height="40" width="3" x="101" y="0"></rect>
+<rect height="40" width="4" x="107" y="0"></rect>
+<rect height="40" width="2" x="114" y="0"></rect>
+<rect height="40" width="5" x="119" y="0"></rect>
+<rect height="40" width="1" x="127" y="0"></rect>
+<rect height="40" width="3" x="131" y="0"></rect>
+<rect height="40" width="6" x="137" y="0"></rect>
+<rect height="40" width="2" x="146" y="0"></rect>
+<rect height="40" width="4" x="151" y="0"></rect>
+<rect height="40" width="1" x="158" y="0"></rect>
+<rect height="40" width="5" x="162" y="0"></rect>
+<rect height="40" width="3" x="170" y="0"></rect>
+<rect height="40" width="2" x="176" y="0"></rect>
+<rect height="40" width="4" x="181" y="0"></rect>
+<rect height="40" width="1" x="188" y="0"></rect>
+<rect height="40" width="6" x="192" y="0"></rect>
+<rect height="40" width="3" x="201" y="0"></rect>
+<rect height="40" width="2" x="207" y="0"></rect>
+<rect height="40" width="4" x="212" y="0"></rect>
+<rect height="40" width="1" x="219" y="0"></rect>
+<rect height="40" width="5" x="223" y="0"></rect>
+<rect height="40" width="2" x="231" y="0"></rect>
+<rect height="40" width="4" x="236" y="0"></rect>
+<rect height="40" width="1" x="243" y="0"></rect>
+<rect height="40" width="6" x="247" y="0"></rect>
+<rect height="40" width="3" x="256" y="0"></rect>
+<rect height="40" width="2" x="262" y="0"></rect>
+<rect height="40" width="4" x="267" y="0"></rect>
+<rect height="40" width="2" x="274" y="0"></rect>
+</svg>
+<span class="font-label-mono-sm text-label-mono-sm tracking-widest text-[10px]">NC-8842-OCT24-T04-MIDNIGHT</span>
+</div>
+<!-- CTA Button -->
+<button class="w-full py-4 px-6 rounded-full bg-primary-container hover:bg-inverse-primary text-on-primary font-title-sm text-title-sm font-semibold tracking-wide shadow-xl flex items-center justify-center gap-3 transition-all transform hover:scale-[1.01] active:scale-[0.99]" id="confirm-btn" type="button">
+<span>Confirm &amp; Secure Table</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+<!-- Guarantee Protocol -->
+<p class="font-label-mono-sm text-label-mono-sm text-center opacity-70 leading-normal">
+                Held for 15 minutes beyond booking hour.<br/>Unclaimed seating released to walk-in folio.
+              </p>
+</div>
+</div>
+<!-- Secondary Help Card -->
+<div class="bg-surface-container-low p-5 rounded-xl border border-outline-variant/30 flex items-center justify-between">
+<div class="space-y-0.5">
+<span class="font-label-mono-sm text-label-mono-sm text-secondary uppercase tracking-widest block">Concierge Desk</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Special groups over 6 or private tastings</span>
+</div>
+<a class="font-label-mono-sm text-label-mono-sm text-primary hover:underline flex items-center gap-1" href="mailto:concierge@nocturne.coffee">
+              Dispatch
+              <span class="material-symbols-outlined text-[14px]">arrow_outward</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Experience Perks Ribbon -->
+<section class="border-t border-outline-variant/30 bg-surface-container-lowest/90 py-12">
+<div class="max-w-[1440px] mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center flex-shrink-0 text-secondary">
+<span class="material-symbols-outlined text-[20px]">album</span>
+</div>
+<div class="space-y-1">
+<h4 class="font-headline-md text-headline-md text-on-surface">33 RPM Vinyl Curation</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Low-frequency ambient jazz and Tokyo lo-fi pressed to heavyweight vinyl all evening.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center flex-shrink-0 text-secondary">
+<span class="material-symbols-outlined text-[20px]">coffee</span>
+</div>
+<div class="space-y-1">
+<h4 class="font-headline-md text-headline-md text-on-surface">Single-Origin Welcome Flight</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">An unlisted 45ml natural process pour-over pairing presented upon seating arrival.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center flex-shrink-0 text-secondary">
+<span class="material-symbols-outlined text-[20px]">nightlight</span>
+</div>
+<div class="space-y-1">
+<h4 class="font-headline-md text-headline-md text-on-surface">Silent Reading Etiquette</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Subdued conversation and warm lamplight honored unconditionally past 01:00 AM.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Inline Script for Reactive Reservation State -->
+<script>
+    (function () {
+      let guestCount = 2;
+      const guestDisplay = document.getElementById('guest-count');
+      const ticketGuests = document.getElementById('ticket-guests');
+      const incBtn = document.getElementById('guest-inc');
+      const decBtn = document.getElementById('guest-dec');
+
+      if (incBtn && decBtn && guestDisplay && ticketGuests) {
+        incBtn.addEventListener('click', () => {
+          if (guestCount < 6) {
+            guestCount++;
+            guestDisplay.textContent = guestCount < 10 ? '0' + guestCount : guestCount;
+            ticketGuests.textContent = (guestCount < 10 ? '0' + guestCount : guestCount) + ' Guests';
+          }
+        });
+
+        decBtn.addEventListener('click', () => {
+          if (guestCount > 1) {
+            guestCount--;
+            guestDisplay.textContent = guestCount < 10 ? '0' + guestCount : guestCount;
+            ticketGuests.textContent = (guestCount < 10 ? '0' + guestCount : guestCount) + ' Guests';
+          }
+        });
+      }
+
+      // Date Pills handling
+      const datePills = document.querySelectorAll('.date-pill');
+      const ticketDate = document.getElementById('ticket-date');
+
+      datePills.forEach(pill => {
+        pill.addEventListener('click', () => {
+          datePills.forEach(p => {
+            p.classList.remove('bg-primary-container', 'text-on-primary', 'shadow-md');
+            p.classList.add('bg-surface-container-high', 'text-on-surface-variant');
+          });
+          pill.classList.remove('bg-surface-container-high', 'text-on-surface-variant');
+          pill.classList.add('bg-primary-container', 'text-on-primary', 'shadow-md');
+          if (ticketDate) {
+            ticketDate.textContent = pill.getAttribute('data-date');
+          }
+        });
+      });
+
+      // Time Slot handling
+      const timeSlots = document.querySelectorAll('.time-slot');
+      const ticketTime = document.getElementById('ticket-time');
+
+      timeSlots.forEach(slot => {
+        slot.addEventListener('click', () => {
+          timeSlots.forEach(s => {
+            s.classList.remove('bg-primary-container', 'text-on-primary', 'border-primary', 'font-bold', 'shadow-md');
+            s.classList.add('bg-surface-container-high', 'text-on-surface');
+          });
+          slot.classList.remove('bg-surface-container-high', 'text-on-surface');
+          slot.classList.add('bg-primary-container', 'text-on-primary', 'border-primary', 'font-bold', 'shadow-md');
+          if (ticketTime) {
+            ticketTime.textContent = slot.getAttribute('data-time') + ' Extraction';
+          }
+        });
+      });
+
+      // Table Blueprint Selection
+      const tableNodes = document.querySelectorAll('.table-node:not([disabled])');
+      const ticketTable = document.getElementById('ticket-table');
+
+      tableNodes.forEach(node => {
+        node.addEventListener('click', () => {
+          tableNodes.forEach(n => {
+            n.classList.remove('bg-primary-container', 'text-on-primary', 'border-primary', 'shadow-lg');
+            n.classList.add('bg-surface-container-high', 'text-on-surface');
+          });
+          node.classList.remove('bg-surface-container-high', 'text-on-surface');
+          node.classList.add('bg-primary-container', 'text-on-primary', 'border-primary', 'shadow-lg');
+
+          const tableId = node.getAttribute('data-id');
+          const zone = node.getAttribute('data-zone') || '';
+          if (ticketTable) {
+            ticketTable.textContent = tableId + ' (' + zone + ')';
+          }
+        });
+      });
+
+      // Confirm CTA Micro-interaction
+      const confirmBtn = document.getElementById('confirm-btn');
+      if (confirmBtn) {
+        confirmBtn.addEventListener('click', () => {
+          confirmBtn.innerHTML = '<span class="material-symbols-outlined text-[20px] animate-spin">sync</span><span>Folio Dispatched...</span>';
+          setTimeout(() => {
+            confirmBtn.innerHTML = '<span class="material-symbols-outlined text-[20px]">check_circle</span><span>Table Held & Confirmed</span>';
+            confirmBtn.classList.remove('bg-primary-container');
+            confirmBtn.classList.add('bg-secondary', 'text-on-secondary');
+          }, 1000);
+        });
+      }
+    })();
+  </script>
+</div></main><footer class="w-full bg-surface-container-lowest pt-space-xl pb-space-lg"><div class="max-w-[1440px] mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop"><div class="w-full overflow-hidden leading-none select-none mb-space-xl"><h1 class="font-display-hero text-display-hero text-surface-container-highest/60 tracking-tighter uppercase whitespace-nowrap">NOCTURNE</h1></div><div class="grid grid-cols-1 md:grid-cols-12 gap-gutter-desktop mb-space-xl"><div class="md:col-span-5 flex flex-col justify-between gap-space-lg"><div class="space-y-space-sm"><span class="font-label-mono-sm text-label-mono-sm uppercase text-secondary tracking-widest">Dispatch &amp; Ephemera</span><p class="font-headline-md text-headline-md text-on-surface">Late-night monographs, micro-lots, and nocturnal releases directly to your folio.</p></div><form class="flex items-center gap-space-sm pt-space-md"><div class="relative flex-1"><input class="w-full bg-transparent py-space-sm font-label-mono text-label-mono text-on-surface placeholder:text-outline focus:outline-none" placeholder="collector@nocturne.atelier" type="email"/><div class="h-[1px] w-full bg-outline-variant"></div></div><button class="px-space-md py-space-sm rounded-full bg-primary-container hover:bg-inverse-primary text-on-primary font-body-sm text-body-sm font-semibold transition-all duration-300" type="submit">Subscribe</button></form></div><div class="md:col-span-3 space-y-space-md"><span class="font-label-mono-sm text-label-mono-sm uppercase text-secondary tracking-widest block">Atelier Hours</span><p class="font-label-mono text-label-mono text-on-surface-variant leading-relaxed">Mon — Sun<br/><span class="text-on-surface font-bold">07:00 PM – 04:00 AM</span><br/>Midnight extraction ritual at 00:00 AM</p></div><div class="md:col-span-4 space-y-space-md"><span class="font-label-mono-sm text-label-mono-sm uppercase text-secondary tracking-widest block">Sanctuary Coordinates</span><p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">14 Rue de l’Étoile / Indiranagar 100ft Rd<br/>Atmospheric Salon &amp; Espresso Laboratory<br/><span class="font-label-mono text-label-mono text-primary">reservations@nocturne.coffee</span></p></div></div><div class="pt-space-lg flex flex-col sm:flex-row items-center justify-between gap-space-md text-on-surface-variant font-label-mono-sm text-label-mono-sm"><div class="flex items-center gap-space-md"><span>© MMXXIV Nocturne Atelier. All rights reserved.</span><span>Roast Batch No. 0884</span></div><div class="flex items-center gap-space-lg"><a class="hover:text-primary transition-colors duration-200" data-path="legal" href="#">Colophon</a><a class="hover:text-primary transition-colors duration-200" data-path="legal" href="#">Imprint</a><a class="hover:text-primary transition-colors duration-200" data-path="legal" href="#">Privacy Protocol</a></div></div></div></footer></body></html>

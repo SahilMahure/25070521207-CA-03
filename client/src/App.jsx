@@ -35,40 +35,12 @@ const App = () => {
               <Route path="/contact" element={<Navigate to="/about" replace />} />
 
               {/* Protected Flow */}
-              <Route
-                path="/menu"
-                element={
-                  <ProtectedRoute>
-                    <MenuPage />
-                  </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/cart"
-                element={
-                  <ProtectedRoute>
-                    <CartPage />
-                  </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/reservation"
-                element={
-                  <ProtectedRoute>
-                    <ReservationPage />
-                  </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/profile"
-                element={
-                  <ProtectedRoute>
-                    <ProfilePage />
-                  </ProtectedRoute>
-                }
-              />
+              <Route path="/menu" element={<ProtectedRoute><MenuPage /></ProtectedRoute>} />
+              <Route path="/cart" element={<ProtectedRoute><CartPage /></ProtectedRoute>} />
+              <Route path="/reservation" element={<ProtectedRoute><ReservationPage /></ProtectedRoute>} />
+              <Route path="/profile" element={<ProtectedRoute><ProfilePage /></ProtectedRoute>} />
 
-              {/* 404 Route */}
+              {/* 404 */}
               <Route path="*" element={<NotFoundPage />} />
             </Routes>
           </main>

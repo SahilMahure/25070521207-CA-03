@@ -8,7 +8,7 @@ const Footer = () => {
 
   const handleSubscribe = (e) => {
     e.preventDefault();
-    if (email) {
+    if (email.trim()) {
       setSubscribed(true);
       setEmail("");
       setTimeout(() => setSubscribed(false), 4000);
@@ -16,114 +16,84 @@ const Footer = () => {
   };
 
   return (
-    <footer className="footer-root">
-      <div className="container footer-container">
-        <div className="footer-grid">
-          {/* Brand Info */}
-          <div className="footer-col brand-col">
-            <div className="footer-logo">
-              <div className="logo-icon-sm">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
-                  <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
-                  <line x1="6" y1="1" x2="6" y2="4"></line>
-                  <line x1="10" y1="1" x2="10" y2="4"></line>
-                  <line x1="14" y1="1" x2="14" y2="4"></line>
-                </svg>
-              </div>
-              <span className="footer-brand-title">Velvet Brew Café</span>
-            </div>
-            <p className="footer-bio">
-              Where artisan single-origin roasts meet buttery fresh French pastries.
-              Curating comforting moments and genuine conversations every single morning.
+    <footer className="na-footer" aria-label="Site footer">
+      {/* ── Big NOCTURNE watermark ── */}
+      <div className="na-footer__watermark" aria-hidden="true">
+        <span className="t-display-hero">NOCTURNE</span>
+      </div>
+
+      <div className="na-footer__body na-container">
+        <div className="na-footer__grid">
+
+          {/* Newsletter col */}
+          <div className="na-footer__col na-footer__col--wide">
+            <span className="t-label-mono-sm na-footer__eyebrow">Dispatch &amp; Ephemera</span>
+            <p className="t-headline-md na-footer__tagline">
+              Late-night monographs, micro-lots, and nocturnal releases directly to your folio.
             </p>
-            <div className="footer-socials">
-              <a href="#instagram" className="social-icon" aria-label="Instagram">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                </svg>
-              </a>
-              <a href="#facebook" className="social-icon" aria-label="Facebook">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-                </svg>
-              </a>
-              <a href="#twitter" className="social-icon" aria-label="Twitter">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
-                </svg>
-              </a>
-            </div>
-          </div>
-
-          {/* Quick Links */}
-          <div className="footer-col">
-            <h4 className="footer-heading">Quick Links</h4>
-            <ul className="footer-links">
-              <li><Link to="/">Home Landing</Link></li>
-              <li><Link to="/menu">Curated Menu</Link></li>
-              <li><Link to="/reservation">Table Reservation</Link></li>
-              <li><Link to="/about">Our Story & Team</Link></li>
-              <li><Link to="/cart">My Cart & Checkout</Link></li>
-            </ul>
-          </div>
-
-          {/* Hours & Location */}
-          <div className="footer-col">
-            <h4 className="footer-heading">Hours & Visit</h4>
-            <div className="footer-hours-box">
-              <p><strong>Mon – Fri:</strong> 7:00 AM – 9:00 PM</p>
-              <p><strong>Sat – Sun:</strong> 8:00 AM – 10:00 PM</p>
-            </div>
-            <div className="footer-contact-info">
-              <p>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                  <circle cx="12" cy="10" r="3"></circle>
-                </svg>
-                124 Artisan Alley, Coffee District, NY
-              </p>
-              <p>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                </svg>
-                (555) 349-2831
-              </p>
-            </div>
-          </div>
-
-          {/* Newsletter */}
-          <div className="footer-col newsletter-col">
-            <h4 className="footer-heading">Velvet Brew Club</h4>
-            <p className="footer-newsletter-text">
-              Subscribe for secret roast drops, special weekend tastings, and exclusive 15% offers.
-            </p>
-            {subscribed ? (
-              <div className="newsletter-success">
-                ✓ Thank you for subscribing! Check your inbox soon.
-              </div>
-            ) : (
-              <form onSubmit={handleSubscribe} className="newsletter-form">
+            <form className="na-footer__form" onSubmit={handleSubscribe} noValidate>
+              <div className="na-footer__form-field">
                 <input
                   type="email"
-                  required
-                  placeholder="Enter your email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="newsletter-input"
+                  placeholder="collector@nocturne.atelier"
+                  className="na-footer__input t-label-mono"
+                  aria-label="Email address for newsletter"
+                  required
                 />
-                <button type="submit" className="newsletter-btn">
-                  Join
-                </button>
-              </form>
-            )}
+                <div className="na-footer__input-line" aria-hidden="true" />
+              </div>
+              <button type="submit" className="na-btn na-btn--primary na-btn--sm">
+                {subscribed ? "Subscribed ✓" : "Subscribe"}
+              </button>
+            </form>
           </div>
+
+          {/* Hours */}
+          <div className="na-footer__col">
+            <span className="t-label-mono-sm na-footer__eyebrow">Atelier Hours</span>
+            <p className="t-label-mono na-footer__hours">
+              Mon — Sun<br />
+              <strong>07:00 PM – 04:00 AM</strong><br />
+              Midnight extraction ritual at 00:00 AM
+            </p>
+          </div>
+
+          {/* Coordinates */}
+          <div className="na-footer__col">
+            <span className="t-label-mono-sm na-footer__eyebrow">Sanctuary Coordinates</span>
+            <p className="na-footer__address t-body-md">
+              14 Rue de l'Étoile / Indiranagar 100ft Rd<br />
+              Atmospheric Salon &amp; Espresso Laboratory<br />
+              <a href="mailto:reservations@nocturne.coffee" className="na-footer__email t-label-mono">
+                reservations@nocturne.coffee
+              </a>
+            </p>
+
+            {/* Quick links */}
+            <nav className="na-footer__links" aria-label="Footer navigation">
+              <Link to="/">Home</Link>
+              <Link to="/menu">Menu</Link>
+              <Link to="/reservation">Reserve</Link>
+              <Link to="/about">About</Link>
+              <Link to="/cart">Cart</Link>
+            </nav>
+          </div>
+
         </div>
 
-        <div className="footer-bottom">
-          <p>© {new Date().getFullYear()} Velvet Brew Café. All rights reserved. Crafted with passion, served with love.</p>
+        {/* ── Bottom bar ── */}
+        <div className="na-footer__bottom">
+          <div className="na-footer__copy t-label-mono-sm">
+            <span>© MMXXIV Nocturne Atelier. All rights reserved.</span>
+            <span>Roast Batch No. 0884</span>
+          </div>
+          <div className="na-footer__legal t-label-mono-sm">
+            <a href="#">Colophon</a>
+            <a href="#">Imprint</a>
+            <a href="#">Privacy Protocol</a>
+          </div>
         </div>
       </div>
     </footer>

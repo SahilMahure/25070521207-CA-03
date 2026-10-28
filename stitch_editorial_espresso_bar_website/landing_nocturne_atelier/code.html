@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,300..900;1,300..900&amp;family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface-dim":"#17120f","on-background":"#ece0db","surface-tint":"#ffb59f","tertiary-fixed":"#eee1ce","on-surface":"#ece0db","on-tertiary-fixed":"#211b0f","on-primary-fixed-variant":"#862300","surface":"#17120f","on-tertiary-container":"#30291c","inverse-on-surface":"#352f2c","primary-fixed-dim":"#ffb59f","on-primary":"#5f1600","surface-container-highest":"#3a3330","surface-container-low":"#201a17","secondary-fixed":"#ffddb5","on-error":"#690005","background":"#17120f","surface-bright":"#3f3834","on-primary-container":"#531200","tertiary-fixed-dim":"#d1c5b3","inverse-surface":"#ece0db","on-surface-variant":"#e1bfb6","secondary-fixed-dim":"#ffb956","inverse-primary":"#ae3204","on-secondary-fixed":"#2a1800","on-error-container":"#ffdad6","on-secondary-container":"#3d2500","error":"#ffb4ab","surface-container-high":"#2f2925","outline-variant":"#59413a","primary":"#ffb59f","error-container":"#93000a","secondary-container":"#c3841e","secondary":"#ffb956","surface-container":"#241e1b","tertiary":"#d1c5b3","primary-container":"#f36336","on-tertiary-fixed-variant":"#4e4638","on-primary-fixed":"#3a0a00","tertiary-container":"#9a8f7f","outline":"#a88a81","on-tertiary":"#362f23","surface-container-lowest":"#120d0a","on-secondary-fixed-variant":"#643f00","on-secondary":"#462b00","surface-variant":"#3a3330","primary-fixed":"#ffdbd1"},borderRadius:{DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem",full:"9999px"},spacing:{"space-sm":"0.5rem","margin-desktop":"5rem","space-lg":"1.75rem",gutter:"1.5rem",margin:"1.25rem","gutter-desktop":"2.5rem","margin-tablet":"2.5rem","space-md":"1rem","space-xs":"0.25rem","space-xl":"3rem"},fontFamily:{"headline-lg-mobile":["Newsreader"],"body-lg":["Hanken Grotesk"],"body-sm":["Hanken Grotesk"],"title-sm":["Hanken Grotesk"],"display-hero-mobile":["Newsreader"],"display-hero":["Newsreader"],"badge-caps":["Hanken Grotesk"],"headline-lg":["Newsreader"],"display-xl":["Newsreader"],"label-mono":["Space Mono"],"body-md":["Hanken Grotesk"],"headline-md":["Newsreader"],"label-mono-sm":["Space Mono"],"display-xl-mobile":["Newsreader"]},fontSize:{"headline-lg-mobile":["30px",{lineHeight:"36px",letterSpacing:"-0.01em",fontWeight:"400"}],"body-lg":["18px",{lineHeight:"28px",letterSpacing:"0em",fontWeight:"400"}],"body-sm":["13px",{lineHeight:"20px",letterSpacing:"0.01em",fontWeight:"400"}],"title-sm":["20px",{lineHeight:"28px",letterSpacing:"-0.01em",fontWeight:"600"}],"display-hero-mobile":["52px",{lineHeight:"54px",letterSpacing:"-0.02em",fontWeight:"400"}],"display-hero":["112px",{lineHeight:"104px",letterSpacing:"-0.03em",fontWeight:"400"}],"badge-caps":["11px",{lineHeight:"14px",letterSpacing:"0.12em",fontWeight:"700"}],"headline-lg":["44px",{lineHeight:"50px",letterSpacing:"-0.02em",fontWeight:"400"}],"display-xl":["72px",{lineHeight:"76px",letterSpacing:"-0.025em",fontWeight:"400"}],"label-mono":["13px",{lineHeight:"18px",letterSpacing:"0.04em",fontWeight:"400"}],"body-md":["15px",{lineHeight:"24px",letterSpacing:"0.005em",fontWeight:"400"}],"headline-md":["28px",{lineHeight:"34px",letterSpacing:"-0.01em",fontWeight:"500"}],"label-mono-sm":["11px",{lineHeight:"14px",letterSpacing:"0.06em",fontWeight:"400"}],"display-xl-mobile":["40px",{lineHeight:"44px",letterSpacing:"-0.02em",fontWeight:"400"}]}}}};</script></head><body class="bg-background font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-fixed"><header class="fixed top-0 inset-x-0 z-50 bg-surface-container-lowest/85 backdrop-blur-xl shadow-[0_16px_36px_-12px_rgba(0,0,0,0.65)]"><div class="h-20 max-w-[1440px] mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop flex items-center justify-between gap-gutter"><div class="flex items-center gap-space-md"><img alt="Nocturne Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1VTSe-bmttyxcS49cgLim6QVPEI8kfKECCmREq-V-FpNMjHz3owMdEh30Q8oT9jrO-PcbmG16uiMdbLsiNeGMqUJjrXsEqx2x0rWk2MxUB7Qesq88nW2J6roLqxGp2ZTplAmAlC1mKDCu_gqdeHr6kh4EVryDItrquzmzy_BE3lztQAXAiVbAso4JIoDh7XV5pKsyg6Gn5UcBKzpdt5_pZjAtS5hYAIt0ZypabCG0fRDw"/><span class="font-headline-md text-headline-md tracking-tight text-on-surface">Nocturne Atelier</span></div><nav class="hidden lg:flex items-center gap-space-lg" data-active-classes="text-primary font-title-sm tracking-wide"><a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors duration-200" data-path="menu" href="#">Menu</a><a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors duration-200" data-path="reserve" href="#">Reserve</a><a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors duration-200" data-path="about" href="#">About</a><a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors duration-200" data-path="journal" href="#">Journal</a><a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors duration-200" data-path="story" href="#">Story</a></nav><div class="flex items-center gap-space-md"><a class="flex items-center gap-space-xs px-space-sm py-space-xs rounded-full bg-surface-container-high hover:bg-surface-container-highest transition-colors duration-200" data-path="cart" href="#"><span class="material-symbols-outlined text-[20px] text-on-surface">local_cafe</span><span class="font-label-mono text-label-mono text-primary-container font-bold">[3]</span></a><a class="hidden sm:inline-flex items-center justify-center px-space-md py-space-xs rounded-full bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-body-sm text-body-sm transition-colors duration-200" data-path="account" href="#">Sign In / Profile</a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shadow-inner"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-20 bg-background min-h-screen"><div class="flex flex-col w-full">
+<!-- HERO SECTION -->
+<section class="relative w-full overflow-hidden bg-background pt-space-lg pb-space-xl">
+<!-- Atmospheric Ambient Glows -->
+<div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[720px] h-[520px] bg-secondary-container/10 blur-[140px] pointer-events-none rounded-full"></div>
+<div class="absolute -top-12 -left-20 w-[420px] h-[420px] bg-primary-container/15 blur-[120px] pointer-events-none rounded-full"></div>
+<div class="max-w-[1440px] mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop relative">
+<!-- Monospace Pre-header Metadata -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm mb-space-lg pb-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="inline-block w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+<span class="font-label-mono text-label-mono uppercase text-secondary tracking-widest">Midnight Extraction Salon · Edition N°09</span>
+</div>
+<div class="font-label-mono-sm text-label-mono-sm text-on-surface-variant flex items-center gap-space-md">
+<span>LAT 12.9716° N</span>
+<span>·</span>
+<span>SERVICE ACTIVE UNTIL 04:00 AM</span>
+</div>
+</div>
+<!-- Monumental Editorial Typography -->
+<div class="relative w-full">
+<h1 class="font-display-hero text-display-hero text-on-surface tracking-tighter leading-[0.92] select-none text-balance">
+<span class="italic font-normal block text-primary">Slow coffee.</span>
+<span class="font-bold block tracking-tight text-on-surface">Fast mornings.</span>
+</h1>
+<!-- Rotating Circular Badge (Top Right of Hero) -->
+<div class="absolute right-0 top-6 hidden md:flex items-center justify-center w-28 h-28 lg:w-32 lg:h-32">
+<svg class="w-full h-full animate-[spin_22s_linear_infinite]" viewbox="0 0 140 140">
+<path d="M 70, 70 m -52, 0 a 52,52 0 1,1 104,0 a 52,52 0 1,1 -104,0" fill="transparent" id="badgePath"></path>
+<text class="font-label-mono-sm text-[10.5px] uppercase fill-secondary tracking-[0.24em]">
+<textpath href="#badgePath" startoffset="0%">
+                FRESHLY ROASTED · BREWED WITH LOVE · 02:00 AM ·
+              </textpath>
+</text>
+</svg>
+<div class="absolute w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-primary-container shadow-inner">
+<span class="material-symbols-outlined text-[20px]">local_fire_department</span>
+</div>
+</div>
+</div>
+<!-- Layered Visual Staging & Hero Content Split -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-desktop mt-space-lg items-end">
+<!-- Subtitle & CTA Column -->
+<div class="lg:col-span-6 space-y-space-lg z-10">
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl leading-relaxed">
+            An artisanal nocturnal hideaway where single-origin micro-lots meet the hushed rhythm of late hours. Handcrafted extraction rituals calibrated for writers, architects, and midnight cartographers.
+          </p>
+<div class="flex flex-wrap items-center gap-space-md pt-space-xs">
+<a class="inline-flex items-center justify-center px-space-lg py-space-sm rounded-full bg-primary-container hover:bg-inverse-primary text-on-primary font-body-sm text-body-sm font-semibold transition-all duration-300 transform hover:scale-[1.02] shadow-[0_16px_36px_-12px_rgba(243,99,54,0.35)]" href="#bestsellers">
+              Order now · ₹220+
+            </a>
+<a class="inline-flex items-center justify-center px-space-lg py-space-sm rounded-full bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-body-sm text-body-sm font-semibold transition-colors duration-200" href="#reservations">
+              Book a table
+            </a>
+<span class="font-label-mono text-label-mono text-secondary flex items-center gap-space-xs ml-space-xs">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+              Next V60: 02:30 AM
+            </span>
+</div>
+<!-- Micro Spec Strip -->
+<div class="grid grid-cols-3 gap-space-sm pt-space-md max-w-lg">
+<div class="bg-surface-container p-space-sm rounded-lg">
+<span class="font-label-mono-sm text-label-mono-sm text-outline block">ROAST TEMP</span>
+<span class="font-label-mono text-label-mono text-on-surface font-bold">204.4°C</span>
+</div>
+<div class="bg-surface-container p-space-sm rounded-lg">
+<span class="font-label-mono-sm text-label-mono-sm text-outline block">EXTRACTION</span>
+<span class="font-label-mono text-label-mono text-on-surface font-bold">1:2.1 / 28s</span>
+</div>
+<div class="bg-surface-container p-space-sm rounded-lg">
+<span class="font-label-mono-sm text-label-mono-sm text-outline block">AMBIENCE</span>
+<span class="font-label-mono text-label-mono text-secondary font-bold">33 RPM Vinyl</span>
+</div>
+</div>
+</div>
+<!-- Overlapping Cinematic Visual Media Hero -->
+<div class="lg:col-span-6 relative mt-space-md lg:mt-0">
+<div class="relative w-full h-[420px] md:h-[480px] rounded-xl overflow-hidden bg-surface-container-low shadow-[0_24px_48px_-16px_rgba(0,0,0,0.85)] group">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" data-alt="Close up moody low-key cinematic photograph of a ceramic stoneware cup catching an espresso stream with glistening golden crema, surrounded by brass pour-over kettles and dark walnut bar counter, warm amber tungsten lighting, deep espresso and burnt orange tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdGQULZB-1DKpE2y94MtNY2o-vOGwJKKcezmka-8WOOfFOszLVS52Jz0CEwA_SDmb7jrZ2-zeZKRGSTxzLg78TZytJ7gKB1F5XOvrNfF7m6IaZR5CWPE6KBKTzabUt--Lgvxv7cFbNuSGUDmUmfMb72LllYA4Su0OIbjoUM9RkqmMLXHrWBBGwZndDRpfoRYPx58nWW2eKZ1vdbyaIskEgBv3ZYw93NYyyNyBG5LlC"/>
+<!-- Vignette Scrim & Status Chip Overlay -->
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent opacity-80"></div>
+<div class="absolute bottom-space-md left-space-md right-space-md flex items-end justify-between">
+<div class="bg-surface-container-highest/90 backdrop-blur-md px-space-md py-space-xs rounded-lg">
+<span class="font-label-mono-sm text-label-mono-sm text-secondary uppercase tracking-widest block">Micro-Lot N°84</span>
+<span class="font-headline-md text-headline-md text-on-surface font-normal italic">Guji Highland Reserve</span>
+</div>
+<div class="bg-primary-container px-space-sm py-space-xs rounded-full shadow-lg">
+<span class="font-label-mono-sm text-label-mono-sm text-on-primary font-bold">BATCH FRESH</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- MARQUEE STRIP -->
+<section class="w-full bg-surface-container-lowest py-space-sm overflow-hidden select-none">
+<div class="flex whitespace-nowrap overflow-x-hidden">
+<div class="flex items-center gap-space-lg animate-[marquee_28s_linear_infinite]">
+<span class="font-headline-md text-headline-md italic text-primary">ETHIOPIA YIRGACHEFFE</span>
+<span class="font-label-mono text-label-mono text-secondary">·</span>
+<span class="font-headline-md text-headline-md text-on-surface">CORTADO</span>
+<span class="font-label-mono text-label-mono text-secondary">·</span>
+<span class="font-headline-md text-headline-md italic text-primary">NIGHT OWL COLD BREW</span>
+<span class="font-label-mono text-label-mono text-secondary">·</span>
+<span class="font-headline-md text-headline-md text-on-surface">CARDAMOM CROISSANT</span>
+<span class="font-label-mono text-label-mono text-secondary">·</span>
+<span class="font-headline-md text-headline-md italic text-primary">AGED TIRAMISU</span>
+<span class="font-label-mono text-label-mono text-secondary">·</span>
+<span class="font-headline-md text-headline-md text-on-surface">POUR-OVER V60</span>
+<span class="font-label-mono text-label-mono text-secondary">·</span>
+<span class="font-headline-md text-headline-md italic text-primary">SUMATRA GAYO NATURAL</span>
+<span class="font-label-mono text-label-mono text-secondary">·</span>
+</div>
+<div aria-hidden="true" class="flex items-center gap-space-lg animate-[marquee_28s_linear_infinite]">
+<span class="font-headline-md text-headline-md italic text-primary">ETHIOPIA YIRGACHEFFE</span>
+<span class="font-label-mono text-label-mono text-secondary">·</span>
+<span class="font-headline-md text-headline-md text-on-surface">CORTADO</span>
+<span class="font-label-mono text-label-mono text-secondary">·</span>
+<span class="font-headline-md text-headline-md italic text-primary">NIGHT OWL COLD BREW</span>
+<span class="font-label-mono text-label-mono text-secondary">·</span>
+<span class="font-headline-md text-headline-md text-on-surface">CARDAMOM CROISSANT</span>
+<span class="font-label-mono text-label-mono text-secondary">·</span>
+<span class="font-headline-md text-headline-md italic text-primary">AGED TIRAMISU</span>
+<span class="font-label-mono text-label-mono text-secondary">·</span>
+<span class="font-headline-md text-headline-md text-on-surface">POUR-OVER V60</span>
+<span class="font-label-mono text-label-mono text-secondary">·</span>
+<span class="font-headline-md text-headline-md italic text-primary">SUMATRA GAYO NATURAL</span>
+<span class="font-label-mono text-label-mono text-secondary">·</span>
+</div>
+</div>
+</section>
+<!-- BESTSELLERS BENTO GRID -->
+<section class="w-full py-space-xl bg-background" id="bestsellers">
+<div class="max-w-[1440px] mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop">
+<!-- Section Header with Editorial Dotted Balance -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md mb-space-lg">
+<div>
+<span class="font-label-mono-sm text-label-mono-sm uppercase text-secondary tracking-widest block mb-space-xs">Folio Selections · Autumn Menu</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Midnight Provisions</h2>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md">
+          Extracted on bespoke Slayer espresso groups and gravity drip towers. Pastries baked twice daily in our subterranean bakehouse.
+        </p>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Card 1: Nocturne Cold Brew (Featured Large Tile) -->
+<div class="md:col-span-7 bg-surface-container rounded-xl overflow-hidden shadow-md flex flex-col justify-between group">
+<div class="relative h-72 md:h-80 overflow-hidden bg-surface-container-high">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out" data-alt="An artisanal amber glass bottle and crystal tumbler of slow drip cold brew garnished with charred Valencia orange peel resting on a dark slate counter with warm directional light, deep dark chocolate and saffron highlights" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnEPSii7e20oENytIBRunYHfi6un85VoGd59jA0hcwPklsHSUqEHAvrCsWy2zfmwkwKyfOq506oz4hkbzj2qllRwwUkBux_XF2B7Ptu-r03KRHtENVe8OReL5qqG_2PK1FwoQkXatPj6eTuzSdMp38TkW4XWP_BGIh9dM0VprukF3P4sTK6y5Xwj-INccTkqTbi1B7TCujEjnQlk2n6t18K9Gs1jgwCm7pDcC6PcFC"/>
+<div class="absolute top-space-sm left-space-sm flex gap-space-xs">
+<span class="bg-surface-container-lowest/80 backdrop-blur-md px-space-sm py-space-xs rounded-full font-label-mono-sm text-label-mono-sm text-secondary uppercase">Single Origin</span>
+<span class="bg-surface-container-lowest/80 backdrop-blur-md px-space-sm py-space-xs rounded-full font-label-mono-sm text-label-mono-sm text-tertiary uppercase">Chilled 18H</span>
+</div>
+<div class="absolute bottom-space-sm right-space-sm">
+<span class="bg-primary-container text-on-primary font-label-mono text-label-mono font-bold px-space-sm py-space-xs rounded-full shadow-lg">₹220</span>
+</div>
+</div>
+<div class="p-space-lg flex-1 flex flex-col justify-between">
+<div class="space-y-space-xs">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-md text-headline-md text-on-surface italic">Nocturne Cold Brew</h3>
+<span class="font-label-mono-sm text-label-mono-sm text-secondary">SIGNATURE RECIPE</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                Slow-dripped for 18 continuous hours through organic filter columns with charred Valencia orange peel, candied bergamot, and a touch of wild forest honey.
+              </p>
+</div>
+<div class="pt-space-md flex items-center justify-between">
+<span class="font-label-mono text-label-mono text-tertiary">Notes: Dark cacao · Citrus oil · Cane molasses</span>
+<button class="px-space-md py-space-xs rounded-full bg-surface-container-high hover:bg-primary-container text-on-surface hover:text-on-primary font-body-sm text-body-sm font-semibold transition-colors duration-200 flex items-center gap-space-xs" onclick="addToOrder('Nocturne Cold Brew', '₹220')">
+<span class="material-symbols-outlined text-[16px]">add</span>
+<span>Add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 2: Smoked Hazelnut Latte -->
+<div class="md:col-span-5 bg-surface-container rounded-xl overflow-hidden shadow-md flex flex-col justify-between group">
+<div class="relative h-60 overflow-hidden bg-surface-container-high">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out" data-alt="A textured ceramic cup filled with a velvety smoked hazelnut latte featuring precise rosetta latte art on dark rustic wooden tray, moody midnight coffeehouse setting, warm candlelight glow, rich earthy tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtVp7EKSkXLpe71Kk-o_OXAzXXfVfeSR1bFl9Ys7CyBk1klaUcmw1-RQbqNbzZtaNo7DVX3BIdUpmgcQDB3u7xtYZ7DYiaIo728BCNbI6Tl-u19M9UmKqnRBOfsR17rgTtvIHj_fkZZDn5duzsmXpoBC7L5MaftQKRIaSAHhoCdvLbdk2oMvP5TwBgawFfHhPQ21n3tIitXKr1NmAEnxiBEjUaxCk1XSXYbyz1vhAD"/>
+<div class="absolute bottom-space-sm right-space-sm">
+<span class="bg-primary-container text-on-primary font-label-mono text-label-mono font-bold px-space-sm py-space-xs rounded-full shadow-lg">₹240</span>
+</div>
+</div>
+<div class="p-space-md flex-1 flex flex-col justify-between">
+<div class="space-y-space-xs">
+<h3 class="font-headline-md text-headline-md text-on-surface">Smoked Hazelnut Latte</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                House-toasted hazelnut praline emulsion, pulled double ristretto, steamed minor figures oat milk, finished with oak smoke salt.
+              </p>
+</div>
+<div class="pt-space-md flex items-center justify-between">
+<span class="font-label-mono-sm text-label-mono-sm text-secondary">Warm · Nutty · Velvety</span>
+<button class="px-space-md py-space-xs rounded-full bg-surface-container-high hover:bg-primary-container text-on-surface hover:text-on-primary font-body-sm text-body-sm font-semibold transition-colors duration-200 flex items-center gap-space-xs" onclick="addToOrder('Smoked Hazelnut Latte', '₹240')">
+<span class="material-symbols-outlined text-[16px]">add</span>
+<span>Add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 3: Flaky Almond Croissant -->
+<div class="md:col-span-5 bg-surface-container rounded-xl overflow-hidden shadow-md flex flex-col justify-between group">
+<div class="relative h-60 overflow-hidden bg-surface-container-high">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out" data-alt="Close up of a golden laminated twice-baked almond croissant sprinkled with toasted sliced almonds and powdered sugar on brown parchment paper, soft cinematic warm moody bakery lighting, crisp crumb visible" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGYiDGRuAAAyI-GCdQZWePz3SuMxJitWTtSVAkpX7W0Cn5U7Oy2CFfsyT6LbQzskFrNIFhj6Wxc5EmU_bZReLPYIhsjog0LeAKFXvCettlLY8vcyS6YCtJrZkG_rEG9a2ynwNrh4KUnUwfB_Z01wLz9fi8rPJKwReL5GmQO8QyKleAEEh6FUzT5MENp6Rr33qKoTkQYSz0y_wW4rd0nBKx6D8gKqhWfuI9wjcHCDS_"/>
+<div class="absolute bottom-space-sm right-space-sm">
+<span class="bg-primary-container text-on-primary font-label-mono text-label-mono font-bold px-space-sm py-space-xs rounded-full shadow-lg">₹150</span>
+</div>
+</div>
+<div class="p-space-md flex-1 flex flex-col justify-between">
+<div class="space-y-space-xs">
+<h3 class="font-headline-md text-headline-md text-on-surface">Flaky Almond Croissant</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                Laminated French butter pastry baked twice with roasted almond frangipane cream and rum syrup glaze.
+              </p>
+</div>
+<div class="pt-space-md flex items-center justify-between">
+<span class="font-label-mono-sm text-label-mono-sm text-secondary">Subterranean Bakehouse</span>
+<button class="px-space-md py-space-xs rounded-full bg-surface-container-high hover:bg-primary-container text-on-surface hover:text-on-primary font-body-sm text-body-sm font-semibold transition-colors duration-200 flex items-center gap-space-xs" onclick="addToOrder('Flaky Almond Croissant', '₹150')">
+<span class="material-symbols-outlined text-[16px]">add</span>
+<span>Add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 4: Espresso Tiramisu -->
+<div class="md:col-span-7 bg-surface-container rounded-xl overflow-hidden shadow-md flex flex-col justify-between group">
+<div class="relative h-60 overflow-hidden bg-surface-container-high">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out" data-alt="A decadent layered slice of espresso tiramisu on a dark ceramic saucer, dusted with raw Valrhona cocoa nibs and espresso powder, soft warm incandescent table lamp in background, rich crema tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvY-Nf_XG1Rsegh4FOIcJCUMN1nLt7fTiXyj17uYUJ7bkxo2gL3Dp4OPTpvk0c8nOv5X9WU92cJlXMJM4HGSZEZlvbtnoaIaPHlwdjAamTVPvajdgMq1s1ykL4IITct3eBaH2P-M2JhNT92xi7h8b5fYuCFNgkhFqsckJjblrmpOtsLbqlPhLbwluJf6PaBB6xerM4DT5dKQ53h_oJLl9CPZW19Nyen8Zml9Z7mna5"/>
+<div class="absolute bottom-space-sm right-space-sm">
+<span class="bg-primary-container text-on-primary font-label-mono text-label-mono font-bold px-space-sm py-space-xs rounded-full shadow-lg">₹260</span>
+</div>
+</div>
+<div class="p-space-md flex-1 flex flex-col justify-between">
+<div class="space-y-space-xs">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-md text-headline-md text-on-surface italic">Espresso Tiramisu</h3>
+<span class="font-label-mono-sm text-label-mono-sm text-tertiary">AGED 24 HOURS</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                House-baked savoiardi ladyfingers heavily soaked in single-origin Guatemala batch brew, layered with cultured mascarpone and raw Valrhona cocoa nibs.
+              </p>
+</div>
+<div class="pt-space-md flex items-center justify-between">
+<span class="font-label-mono text-label-mono text-secondary">Pairing recommendation: Ethiopia Natural Filter</span>
+<button class="px-space-md py-space-xs rounded-full bg-surface-container-high hover:bg-primary-container text-on-surface hover:text-on-primary font-body-sm text-body-sm font-semibold transition-colors duration-200 flex items-center gap-space-xs" onclick="addToOrder('Espresso Tiramisu', '₹260')">
+<span class="material-symbols-outlined text-[16px]">add</span>
+<span>Add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- OUR STORY SECTION (Asymmetric Split Editorial) -->
+<section class="w-full py-space-xl bg-surface-container-lowest overflow-hidden">
+<div class="max-w-[1440px] mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-desktop items-center">
+<!-- Left: Dramatic Editorial Barista Portrait -->
+<div class="lg:col-span-6 relative">
+<div class="relative w-full h-[520px] rounded-xl overflow-hidden bg-surface-container shadow-2xl">
+<img class="w-full h-full object-cover" data-alt="High contrast editorial black and gold photograph of a barista executing a precise goose-neck kettle pour-over stream in moody amber backlighting, steam rising through shafts of soft warm light, deep shadows, atmospheric coffee atelier" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfk8lg5I_H892eoQWtxlctbzw9EmbArPZxh1ynhvXQg-hB2m9qKXyWVH3s9MpvTyuAGGGnn4FGy9n6LQzdQdPc-nOvGcYTKfQR6mvhVcKixe-LvPvPQpUeArJ9Jeu8Jlt6wGy1H6LRPHdLD707TSJ_oO-xpHK4uUuCQoCkPo7o27uvCFuloZ0gQzOAoOM4kpFUr41dO6mSpATbB9wNW6GdF5rbzD1buRJs16V821DZ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent opacity-60"></div>
+</div>
+<!-- Float Stamp Element -->
+<div class="absolute -bottom-6 -right-4 md:right-8 bg-surface-container-high p-space-md rounded-xl shadow-xl max-w-xs">
+<span class="font-label-mono-sm text-label-mono-sm text-secondary uppercase block">Archive Entry #001</span>
+<p class="font-body-sm text-body-sm text-on-surface mt-space-xs italic">
+              "We reject the idea that coffee belongs only to the sunrise rush. Midnight clarity demands deliberate patience."
+            </p>
+</div>
+</div>
+<!-- Right: Story Manifest Narrative -->
+<div class="lg:col-span-6 space-y-space-md mt-space-lg lg:mt-0">
+<div class="space-y-space-xs">
+<span class="font-label-mono-sm text-label-mono-sm text-secondary uppercase tracking-widest">Colophon &amp; Origins</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">
+              Born at <span class="italic text-primary font-normal">2:00 AM</span>
+</h2>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+            Nocturne Atelier was founded inside a quiet basement laboratory in Indiranagar by three nocturnal thinkers: a typographer, an acoustic engineer, and a Q-grader. Frustrated by coffee houses that closed their heavy shutters just as our focus sharpened, we built a nocturnal sanctuary.
+          </p>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            Every extraction here honors the night dweller. We roast on a restored 1978 San Franciscan drum roaster, profiling each bean to preserve origin acidity and complex florals without the astringent punch of commercial caffeine. We pair this with curated vinyl pressings played through hand-wound vacuum tube amplifiers.
+          </p>
+<div class="pt-space-md grid grid-cols-2 gap-space-md">
+<div class="bg-surface-container p-space-md rounded-lg">
+<span class="font-display-xl text-display-xl text-primary leading-none block font-light">18<span class="text-secondary text-headline-md">h</span></span>
+<span class="font-label-mono-sm text-label-mono-sm text-outline mt-space-xs block uppercase">Slow Extraction Cycle</span>
+</div>
+<div class="bg-surface-container p-space-md rounded-lg">
+<span class="font-display-xl text-display-xl text-primary leading-none block font-light">100<span class="text-secondary text-headline-md">%</span></span>
+<span class="font-label-mono-sm text-label-mono-sm text-outline mt-space-xs block uppercase">Direct Trade Micro-Lots</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CUSTOMER REVIEWS (Big Pull Quotes) -->
+<section class="w-full py-space-xl bg-background relative overflow-hidden">
+<div class="max-w-[1440px] mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop">
+<div class="mb-space-lg">
+<span class="font-label-mono-sm text-label-mono-sm text-secondary uppercase tracking-widest block mb-space-xs">Critical Folio · Dispatches</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Echoes from the Salon</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter-desktop">
+<!-- Review 1 -->
+<div class="bg-surface-container p-space-lg rounded-xl flex flex-col justify-between shadow-md relative group">
+<div class="space-y-space-md">
+<span class="material-symbols-outlined text-[36px] text-primary-container">format_quote</span>
+<blockquote class="font-headline-md text-headline-md text-on-surface italic leading-snug">
+              “The Hazelnut Latte is poetry in ceramics. There is no other space in Bengaluru that treats midnight coffee with this reverence.”
+            </blockquote>
+</div>
+<div class="pt-space-lg flex items-center justify-between">
+<div>
+<span class="font-title-sm text-title-sm text-on-surface block font-semibold">Vogue Living</span>
+<span class="font-label-mono-sm text-label-mono-sm text-secondary">Design &amp; Atmosphere Column, 2024</span>
+</div>
+<span class="font-label-mono text-label-mono text-tertiary">★★★★★</span>
+</div>
+</div>
+<!-- Review 2 -->
+<div class="bg-surface-container p-space-lg rounded-xl flex flex-col justify-between shadow-md relative group">
+<div class="space-y-space-md">
+<span class="material-symbols-outlined text-[36px] text-primary-container">format_quote</span>
+<blockquote class="font-headline-md text-headline-md text-on-surface italic leading-snug">
+              “An intoxicating sanctuary of rich crema, jazz vinyl, and quiet genius. My blueprints find their soul here between midnight and four.”
+            </blockquote>
+</div>
+<div class="pt-space-lg flex items-center justify-between">
+<div>
+<span class="font-title-sm text-title-sm text-on-surface block font-semibold">Devina R.</span>
+<span class="font-label-mono-sm text-label-mono-sm text-secondary">Architect &amp; Urbanist</span>
+</div>
+<span class="font-label-mono text-label-mono text-tertiary">TABLE 04 REGULAR</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- OPENING HOURS & LOCATION (LIGHT PAPER CONTRAST SECTION) -->
+<section class="w-full py-space-xl bg-background" id="reservations">
+<div class="max-w-[1440px] mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop">
+<!-- High Contrast Paper Bleed Card -->
+<div class="w-full bg-tertiary-fixed text-on-tertiary-fixed rounded-2xl p-space-lg md:p-space-xl shadow-2xl relative overflow-hidden">
+<!-- Header row inside paper card -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-md pb-space-lg">
+<div>
+<span class="font-label-mono text-label-mono uppercase text-on-primary-fixed-variant tracking-widest block font-bold">Physical Sanctuary · Bengaluru</span>
+<h2 class="font-headline-lg text-headline-lg text-on-tertiary-fixed tracking-tight">Coordinates &amp; Nocturnal Hours</h2>
+</div>
+<div class="flex items-center gap-space-xs font-label-mono-sm text-label-mono-sm bg-surface-container-lowest/10 px-space-md py-space-xs rounded-full">
+<span class="inline-block w-2 h-2 rounded-full bg-primary-container"></span>
+<span class="text-on-tertiary-fixed font-bold">VALET AVAILABLE AFTER 08:00 PM</span>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-desktop mt-space-md">
+<!-- Hours & Details Column -->
+<div class="lg:col-span-6 space-y-space-lg">
+<!-- Opening Hours Table in Monospace -->
+<div class="space-y-space-sm">
+<span class="font-label-mono-sm text-label-mono-sm uppercase text-on-tertiary-fixed-variant tracking-wider font-bold block">Operating Rhythm</span>
+<div class="space-y-space-xs font-label-mono text-label-mono">
+<div class="flex items-center justify-between py-space-xs">
+<span class="font-bold text-on-tertiary-fixed">MON — THU</span>
+<span class="text-on-primary-fixed-variant font-bold">06:00 PM – 02:00 AM</span>
+</div>
+<div class="flex items-center justify-between py-space-xs">
+<span class="font-bold text-on-tertiary-fixed">FRI — SUN</span>
+<span class="text-on-primary-fixed-variant font-bold">06:00 PM – 04:00 AM</span>
+</div>
+<div class="flex items-center justify-between py-space-xs text-on-tertiary-fixed-variant text-body-sm">
+<span>MIDNIGHT TASTING FLIGHT</span>
+<span>DAILY AT 00:00 AM</span>
+</div>
+</div>
+</div>
+<!-- Address and Contact Monospace card -->
+<div class="space-y-space-xs pt-space-xs">
+<span class="font-label-mono-sm text-label-mono-sm uppercase text-on-tertiary-fixed-variant tracking-wider font-bold block">Salon Address</span>
+<p class="font-body-lg text-body-lg text-on-tertiary-fixed leading-relaxed font-semibold">
+                14 Rue de l’Étoile, 100ft Road,<br/>
+                Indiranagar, Bengaluru — 560038
+              </p>
+<div class="pt-space-xs space-y-1 font-label-mono text-label-mono text-on-tertiary-fixed-variant">
+<div>Tel: +91 80 4920 1844</div>
+<div>Desk: concierge@nocturne.atelier</div>
+</div>
+</div>
+<!-- Action buttons inside paper card -->
+<div class="pt-space-md flex flex-wrap gap-space-sm">
+<a class="px-space-md py-space-xs rounded-full bg-primary-container text-on-primary font-body-sm text-body-sm font-semibold shadow-md hover:bg-inverse-primary transition-colors" href="tel:+918049201844">
+                Reserve via Concierge
+              </a>
+<button class="px-space-md py-space-xs rounded-full bg-surface-container-lowest/15 hover:bg-surface-container-lowest/25 text-on-tertiary-fixed font-body-sm text-body-sm font-semibold transition-colors" onclick="navigator.clipboard.writeText('14 Rue de l’Étoile, Indiranagar, Bengaluru'); alert('Coordinates copied to clipboard');">
+                Copy Coordinates
+              </button>
+</div>
+</div>
+<!-- Editorial Map Card -->
+<div class="lg:col-span-6">
+<div class="relative w-full h-[360px] md:h-full min-h-[300px] rounded-xl overflow-hidden shadow-xl bg-surface-container-lowest">
+<!-- Location Data Container with Google Maps static placeholder hook -->
+<div class="w-full h-full bg-cover bg-center" data-location="Indiranagar, Bengaluru, India" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDGU83x18yg6XVXtDTs9MtF3KGdw39DY6_86FolCaWHYjMPWU5a3DwqIZKy7lyD_y_ccEuSEDaEbxu8lXAMZM2eAJq9BcOUVHTXB32a45xA8yKWQYzby9YZZz1YX3BpLq-FXGVdDKZXymfCCah6tWxUJejdP5KHB_3MJ8HdHTfwKrHWkqnHM6hWKBpcInRwOTwwZbp0RLI51oedD1-YHlrJa7UoQYl0AZObJab0YfaO')"></div>
+<!-- Map Pin Glass Overlay -->
+<div class="absolute inset-0 bg-surface-container-lowest/30 backdrop-blur-[2px] flex items-center justify-center p-space-md pointer-events-none">
+<div class="bg-surface-container-lowest/95 text-on-surface p-space-md rounded-xl shadow-2xl flex items-center gap-space-md max-w-sm pointer-events-auto">
+<div class="w-10 h-10 rounded-full bg-primary-container text-on-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">location_on</span>
+</div>
+<div>
+<span class="font-title-sm text-title-sm text-on-surface block font-bold leading-tight">Nocturne Salon</span>
+<span class="font-label-mono-sm text-label-mono-sm text-secondary">Indiranagar 100ft Rd Corner</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- INTERACTIVE TOAST SCRIPT -->
+<script>
+    function addToOrder(item, price) {
+      const toast = document.createElement('div');
+      toast.className = 'fixed bottom-6 right-6 z-50 bg-primary-container text-on-primary px-4 py-3 rounded-full shadow-2xl flex items-center gap-3 transition-all duration-300 transform translate-y-2 opacity-0 font-body-sm';
+      toast.innerHTML = `<span class="material-symbols-outlined text-[20px]">check_circle</span><span>Added <strong>${item}</strong> (${price}) to midnight folio</span>`;
+      document.body.appendChild(toast);
+      
+      requestAnimationFrame(() => {
+        toast.classList.remove('translate-y-2', 'opacity-0');
+      });
+
+      setTimeout(() => {
+        toast.classList.add('translate-y-2', 'opacity-0');
+        setTimeout(() => toast.remove(), 300);
+      }, 2600);
+    }
+  </script>
+</div></main><footer class="w-full bg-surface-container-lowest pt-space-xl pb-space-lg"><div class="max-w-[1440px] mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop"><div class="w-full overflow-hidden leading-none select-none mb-space-xl"><h1 class="font-display-hero text-display-hero text-surface-container-highest/60 tracking-tighter uppercase whitespace-nowrap">NOCTURNE</h1></div><div class="grid grid-cols-1 md:grid-cols-12 gap-gutter-desktop mb-space-xl"><div class="md:col-span-5 flex flex-col justify-between gap-space-lg"><div class="space-y-space-sm"><span class="font-label-mono-sm text-label-mono-sm uppercase text-secondary tracking-widest">Dispatch &amp; Ephemera</span><p class="font-headline-md text-headline-md text-on-surface">Late-night monographs, micro-lots, and nocturnal releases directly to your folio.</p></div><form class="flex items-center gap-space-sm pt-space-md"><div class="relative flex-1"><input class="w-full bg-transparent py-space-sm font-label-mono text-label-mono text-on-surface placeholder:text-outline focus:outline-none" placeholder="collector@nocturne.atelier" type="email"/><div class="h-[1px] w-full bg-outline-variant"></div></div><button class="px-space-md py-space-sm rounded-full bg-primary-container hover:bg-inverse-primary text-on-primary font-body-sm text-body-sm font-semibold transition-all duration-300" type="submit">Subscribe</button></form></div><div class="md:col-span-3 space-y-space-md"><span class="font-label-mono-sm text-label-mono-sm uppercase text-secondary tracking-widest block">Atelier Hours</span><p class="font-label-mono text-label-mono text-on-surface-variant leading-relaxed">Mon — Sun<br/><span class="text-on-surface font-bold">07:00 PM – 04:00 AM</span><br/>Midnight extraction ritual at 00:00 AM</p></div><div class="md:col-span-4 space-y-space-md"><span class="font-label-mono-sm text-label-mono-sm uppercase text-secondary tracking-widest block">Sanctuary Coordinates</span><p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">14 Rue de l’Étoile / Indiranagar 100ft Rd<br/>Atmospheric Salon &amp; Espresso Laboratory<br/><span class="font-label-mono text-label-mono text-primary">reservations@nocturne.coffee</span></p></div></div><div class="pt-space-lg flex flex-col sm:flex-row items-center justify-between gap-space-md text-on-surface-variant font-label-mono-sm text-label-mono-sm"><div class="flex items-center gap-space-md"><span>© MMXXIV Nocturne Atelier. All rights reserved.</span><span>Roast Batch No. 0884</span></div><div class="flex items-center gap-space-lg"><a class="hover:text-primary transition-colors duration-200" data-path="legal" href="#">Colophon</a><a class="hover:text-primary transition-colors duration-200" data-path="legal" href="#">Imprint</a><a class="hover:text-primary transition-colors duration-200" data-path="legal" href="#">Privacy Protocol</a></div></div></div></footer></body></html>

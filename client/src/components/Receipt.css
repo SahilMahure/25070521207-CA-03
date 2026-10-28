@@ -1,0 +1,197 @@
+/* ── Nocturne Atelier Thermal Receipt ──────────────────── */
+.na-receipt-card {
+  position: relative;
+  width: 100%;
+  max-width: 380px;
+  margin: 0 auto;
+  background: #f3e6d3;
+  color: #15100d;
+  font-family: var(--f-mono, "Space Mono", monospace);
+  padding: 32px 28px 36px;
+  border-radius: 16px 16px 0 0;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.45);
+  font-size: 12px;
+  line-height: 1.5;
+  filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.3));
+}
+
+/* Header */
+.na-receipt-header {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.na-receipt-brand {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  margin-bottom: 2px;
+}
+
+.na-receipt-sub {
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: #6c5b51;
+  margin-bottom: 12px;
+}
+
+.na-receipt-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: #6c5b51;
+  border-top: 1px dashed #d9c7b0;
+  border-bottom: 1px dashed #d9c7b0;
+  padding: 6px 0;
+  margin-bottom: 6px;
+}
+
+.na-receipt-table,
+.na-receipt-guest {
+  font-size: 11px;
+  color: #15100d;
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+/* Dashed divider */
+.na-receipt-divider {
+  border-bottom: 1px dashed #a8978a;
+  margin: 14px 0;
+}
+
+/* Items */
+.na-receipt-items {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.na-receipt-item-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  font-size: 12px;
+}
+
+.na-receipt-qty {
+  font-weight: 700;
+  width: 24px;
+  color: #6c5b51;
+}
+
+.na-receipt-name {
+  flex: 1;
+  padding: 0 8px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.na-receipt-price {
+  font-weight: 600;
+  text-align: right;
+}
+
+/* Summary */
+.na-receipt-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.na-receipt-calc-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11.5px;
+  color: #6c5b51;
+}
+
+.na-receipt-discount {
+  color: #b73919;
+}
+
+.na-receipt-total-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 15px;
+  font-weight: 700;
+  border-top: 1px dashed #15100d;
+  padding-top: 8px;
+  margin-top: 4px;
+  color: #15100d;
+}
+
+.na-receipt-notes {
+  margin-top: 12px;
+  padding: 8px;
+  background: rgba(108, 91, 81, 0.08);
+  font-size: 11px;
+  border-left: 2px solid #a8978a;
+}
+
+/* Barcode */
+.na-receipt-barcode-wrap {
+  text-align: center;
+  margin: 22px 0 14px;
+}
+
+.na-receipt-barcode {
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.barcode-bars {
+  width: 180px;
+  height: 36px;
+  background: repeating-linear-gradient(
+    90deg,
+    #15100d 0,
+    #15100d 2px,
+    transparent 2px,
+    transparent 4px,
+    #15100d 4px,
+    #15100d 7px,
+    transparent 7px,
+    transparent 9px,
+    #15100d 9px,
+    #15100d 10px,
+    transparent 10px,
+    transparent 13px,
+    #15100d 13px,
+    #15100d 16px,
+    transparent 16px,
+    transparent 17px
+  );
+}
+
+.na-receipt-barcode-num {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  margin-top: 4px;
+  color: #6c5b51;
+}
+
+.na-receipt-footer {
+  text-align: center;
+  font-size: 9.5px;
+  letter-spacing: 0.08em;
+  color: #6c5b51;
+  line-height: 1.5;
+  margin-top: 8px;
+}
+
+/* Sawtooth bottom tear-off */
+.na-receipt-sawtooth {
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  right: 0;
+  height: 10px;
+  background-image: linear-gradient(135deg, #f3e6d3 5px, transparent 0),
+                    linear-gradient(-135deg, #f3e6d3 5px, transparent 0);
+  background-size: 12px 10px;
+  background-repeat: repeat-x;
+}

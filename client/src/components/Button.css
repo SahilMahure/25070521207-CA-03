@@ -1,107 +1,79 @@
-.btn {
+/* ── Nocturne Atelier Buttons ─────────────────────────── */
+.na-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 0.4em;
+  border-radius: var(--r-full);
+  font-family: var(--font-sans);
   font-weight: 600;
-  border-radius: var(--radius-full);
-  transition: all var(--transition-fast);
   cursor: pointer;
+  border: none;
+  outline: none;
+  transition: background var(--t-fast), transform var(--t-fast), box-shadow var(--t-fast);
   white-space: nowrap;
-  gap: 8px;
-  border: 1px solid transparent;
+  user-select: none;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
-.btn:active:not(:disabled) {
-  transform: scale(0.98);
-}
+.na-btn:hover  { transform: translateY(-1px) scale(1.02); }
+.na-btn:active { transform: scale(0.98); }
+.na-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
 
 /* Sizes */
-.btn-sm {
-  padding: 8px 16px;
-  font-size: 0.85rem;
-}
+.na-btn--sm { font-size: 11px; letter-spacing: 0.04em; padding: 8px 18px; }
+.na-btn--md { font-size: 13px; letter-spacing: 0.02em; padding: 10px 22px; }
+.na-btn--lg { font-size: 15px; letter-spacing: 0.01em; padding: 14px 30px; }
 
-.btn-md {
-  padding: 12px 24px;
-  font-size: 0.95rem;
+/* Primary — burnt orange */
+.na-btn--primary {
+  background: var(--na-primary-cnt);
+  color: var(--na-on-primary);
+  box-shadow: var(--shadow-amber);
 }
+.na-btn--primary:hover:not(:disabled) { background: var(--na-inverse-primary); }
 
-.btn-lg {
-  padding: 15px 32px;
-  font-size: 1.05rem;
+/* Secondary — dark surface */
+.na-btn--secondary {
+  background: var(--na-bg-high);
+  color: var(--na-on-surface);
 }
+.na-btn--secondary:hover:not(:disabled) { background: var(--na-bg-highest); }
 
-/* Variants */
-.btn-primary {
-  background-color: var(--color-accent);
-  color: #fff;
-  box-shadow: 0 4px 14px rgba(198, 125, 59, 0.35);
-}
-
-.btn-primary:hover:not(:disabled) {
-  background-color: var(--color-accent-hover);
-  box-shadow: 0 6px 18px rgba(198, 125, 59, 0.45);
-  transform: translateY(-2px);
-}
-
-.btn-secondary {
-  background-color: var(--color-coffee-dark);
-  color: var(--color-cream);
-}
-
-.btn-secondary:hover:not(:disabled) {
-  background-color: var(--color-espresso);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
-}
-
-.btn-outline {
-  background-color: transparent;
-  color: var(--color-coffee-dark);
-  border-color: var(--color-coffee-dark);
-}
-
-.btn-outline:hover:not(:disabled) {
-  background-color: var(--color-coffee-dark);
-  color: var(--color-cream);
-}
-
-.btn-ghost {
+/* Ghost — transparent with border */
+.na-btn--ghost {
   background: transparent;
-  color: var(--color-coffee-dark);
+  color: var(--na-on-surface);
+  border: 1px solid var(--na-outline-var);
+}
+.na-btn--ghost:hover:not(:disabled) {
+  border-color: var(--na-secondary);
+  background: rgba(232,163,61,0.06);
 }
 
-.btn-ghost:hover:not(:disabled) {
-  background: rgba(44, 24, 16, 0.06);
+/* Text — monospace link style */
+.na-btn--text {
+  background: transparent;
+  color: var(--na-primary);
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-mono-sm);
+  letter-spacing: var(--ls-label-mono-sm);
+  text-transform: uppercase;
+  padding: 4px 0;
+  border-radius: 0;
 }
+.na-btn--text:hover:not(:disabled) { color: var(--na-on-surface); transform: none; }
+.na-btn--text:hover .na-btn-arrow { transform: translateX(4px); }
+.na-btn-arrow { display: inline-block; transition: transform var(--t-fast); }
 
-.btn-danger {
-  background-color: var(--color-danger);
-  color: #fff;
-}
-
-.btn:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-  transform: none !important;
-  box-shadow: none !important;
-}
-
-.btn-spinner-wrapper {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.btn-spinner {
-  width: 16px;
-  height: 16px;
-  border: 2px solid rgba(255, 255, 255, 0.4);
-  border-top-color: #fff;
+/* Loading */
+.na-btn--loading { pointer-events: none; }
+.na-btn__spinner-wrap { display: flex; align-items: center; gap: 8px; }
+.na-btn__spinner {
+  width: 14px; height: 14px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-top-color: currentColor;
   border-radius: 50%;
-  animation: spin 0.8s linear infinite;
-}
-
-@keyframes spin {
-  to { transform: rotate(360deg); }
+  animation: na-spin 0.7s linear infinite;
 }

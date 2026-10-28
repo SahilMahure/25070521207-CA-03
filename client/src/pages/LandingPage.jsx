@@ -1,107 +1,188 @@
-import { Link } from "react-router-dom";
+import { useEffect, useRef } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { menuItems } from "../data/mockMenu";
-import MenuCard from "../components/MenuCard";
-import Button from "../components/Button";
+import { useCart } from "../context/CartContext";
+import { useAuth } from "../context/AuthContext";
+import Toast from "../components/Toast";
+import RotatingBadge from "../components/RotatingBadge";
+import { useState } from "react";
 import "./LandingPage.css";
 
+/* ── Scroll-reveal hook (GSAP when available, CSS fallback) ── */
+function useScrollReveal(ref) {
+  useEffect(() => {
+    if (!ref.current) return;
+    const els = ref.current.querySelectorAll("[data-reveal]");
+    if (!els.length) return;
+
+    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReduced) {
+      els.forEach((el) => el.classList.add("revealed"));
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("revealed");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -60px 0px" }
+    );
+
+    els.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, [ref]);
+}
+
 const LandingPage = () => {
-  // Get 4-6 bestseller items
-  const bestsellers = menuItems.filter(item => item.isBestseller).slice(0, 6);
+  const { addToCart } = useCart();
+  const { isAuthenticated } = useAuth();
+  const navigate = useNavigate();
+  const pageRef = useRef(null);
+  const [toast, setToast] = useState({ message: "", type: "success" });
+  useScrollReveal(pageRef);
+
+  // 4 bestseller items for the bento grid
+  const bestsellers = menuItems.filter((i) => i.isBestseller).slice(0, 4);
 
   const testimonials = [
     {
       id: 1,
-      name: "Sophia Martinez",
-      role: "Architect & Daily Regular",
-      avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80",
-      quote: "The Velvet Signature Latte is pure poetry. The ambient warm lighting and calm playlist make it my absolute favourite workspace.",
-      rating: 5
+      quote: "The Hazelnut Latte is poetry in ceramics. There is no other space in Bengaluru that treats midnight coffee with this reverence.",
+      author: "Vogue Living",
+      role: "Design & Atmosphere Column, 2024",
+      rating: "★★★★★",
     },
     {
       id: 2,
-      name: "David Chen",
-      role: "Food & Lifestyle Writer",
-      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80",
-      quote: "The avocado sourdough toast and dark chocolate molten cake are sublime. Hands down the highest quality coffee roastery in the neighborhood.",
-      rating: 5
+      quote: "An intoxicating sanctuary of rich crema, jazz vinyl, and quiet genius. My blueprints find their soul here between midnight and four.",
+      author: "Devina R.",
+      role: "Architect & Urbanist",
+      tag: "TABLE 04 REGULAR",
     },
-    {
-      id: 3,
-      name: "Emma Watson",
-      role: "Creative Producer",
-      avatar: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=150&q=80",
-      quote: "Booking our anniversary brunch here was the best decision. Warm hospitality, artisanal craftsmanship, and a breathtaking aesthetic.",
-      rating: 5
+  ];
+
+  const handleAddToCart = (item) => {
+    if (!isAuthenticated) {
+      navigate("/login");
+      return;
     }
+    addToCart(item);
+    setToast({ message: `${item.name} added to your folio`, type: "success" });
+  };
+
+  const marqueeItems = [
+    { label: "Ethiopia Yirgacheffe", italic: true },
+    { label: "Cortado" },
+    { label: "Night Owl Cold Brew", italic: true },
+    { label: "Cardamom Croissant" },
+    { label: "Aged Tiramisu", italic: true },
+    { label: "Pour-Over V60" },
+    { label: "Sumatra Gayo Natural", italic: true },
   ];
 
   return (
-    <div className="landing-page animate-fade-in">
-      {/* Hero Section */}
-      <section className="hero-section">
-        <div className="container hero-container">
-          <div className="hero-content">
-            <span className="hero-pill">✨ Artisanal Roastery & Gourmet Bakery</span>
-            <h1 className="hero-title">
-              Every Sip Tells a <span className="highlight-text">Warm Story.</span>
-            </h1>
-            <p className="hero-subtitle">
-              Welcome to Velvet Brew Café. We hand-roast ethical micro-lot beans and bake golden,
-              flaky pastries every dawn to bring you the coziest moments in town.
-            </p>
-            <div className="hero-cta-group">
-              <Link to="/menu">
-                <Button variant="primary" size="lg">
-                  Order Now
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                    <polyline points="12 5 19 12 12 19"></polyline>
-                  </svg>
-                </Button>
-              </Link>
-              <Link to="/reservation">
-                <Button variant="outline" size="lg">
-                  Book a Table
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                    <line x1="16" y1="2" x2="16" y2="6"></line>
-                    <line x1="8" y1="2" x2="8" y2="6"></line>
-                    <line x1="3" y1="10" x2="21" y2="10"></line>
-                  </svg>
-                </Button>
-              </Link>
-            </div>
+    <div className="na-landing" ref={pageRef}>
 
-            <div className="hero-stats">
-              <div className="stat-item">
-                <span className="stat-num">100%</span>
-                <span className="stat-label">Organic Arabica</span>
-              </div>
-              <div className="stat-divider"></div>
-              <div className="stat-item">
-                <span className="stat-num">4.9 ★</span>
-                <span className="stat-label">Over 2,500+ Reviews</span>
-              </div>
-              <div className="stat-divider"></div>
-              <div className="stat-item">
-                <span className="stat-num">Fresh</span>
-                <span className="stat-label">Baked Daily at 6 AM</span>
-              </div>
+      {/* ════════════════════════════════════════
+          HERO SECTION
+          ════════════════════════════════════════ */}
+      <section className="na-hero">
+        {/* Atmospheric glows */}
+        <div className="na-hero__glow na-hero__glow--1" aria-hidden="true" />
+        <div className="na-hero__glow na-hero__glow--2" aria-hidden="true" />
+
+        <div className="na-container na-hero__inner">
+          {/* Pre-header metadata strip */}
+          <div className="na-hero__meta" data-reveal>
+            <span className="na-hero__meta-dot" aria-hidden="true" />
+            <span className="t-label-mono na-hero__meta-edition">
+              Midnight Extraction Salon · Edition N°09
+            </span>
+            <div className="na-hero__meta-right t-label-mono-sm">
+              <span>LAT 12.9716° N</span>
+              <span aria-hidden="true">·</span>
+              <span>SERVICE ACTIVE UNTIL 04:00 AM</span>
             </div>
           </div>
 
-          <div className="hero-media">
-            <div className="hero-image-wrapper">
-              <img
-                src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=900&q=80"
-                alt="Cozy Velvet Brew Cafe interior"
-                className="hero-image-main"
+          {/* Main grid */}
+          <div className="na-hero__grid">
+            {/* Left — text column */}
+            <div className="na-hero__text-col">
+              {/* Monumental headline */}
+              <h1 className="na-hero__headline t-display-hero" data-reveal style={{ transitionDelay: "0.05s" }}>
+                <em className="na-hero__headline-italic">Slow coffee.</em>
+                <strong className="na-hero__headline-bold">Fast mornings.</strong>
+              </h1>
+
+              <p className="t-body-lg na-hero__sub" data-reveal style={{ transitionDelay: "0.12s" }}>
+                An artisanal nocturnal hideaway where single-origin micro-lots meet the hushed rhythm
+                of late hours. Handcrafted extraction rituals for writers, architects, and midnight cartographers.
+              </p>
+
+              <div className="na-hero__ctas" data-reveal style={{ transitionDelay: "0.18s" }}>
+                <Link
+                  to={isAuthenticated ? "/menu" : "/login"}
+                  className="na-btn na-btn--primary na-btn--lg"
+                >
+                  Order now · ₹220+
+                </Link>
+                <Link to="/reservation" className="na-btn na-btn--secondary na-btn--lg">
+                  Book a table
+                </Link>
+                <span className="na-hero__next-brew t-label-mono">
+                  <span className="material-symbols-outlined" style={{ fontSize: 16 }}>schedule</span>
+                  Next V60: 02:30 AM
+                </span>
+              </div>
+
+              {/* Spec strip */}
+              <div className="na-hero__spec-strip" data-reveal style={{ transitionDelay: "0.24s" }}>
+                <div className="na-hero__spec">
+                  <span className="t-label-mono-sm na-hero__spec-key">ROAST TEMP</span>
+                  <span className="t-label-mono na-hero__spec-val">204.4°C</span>
+                </div>
+                <div className="na-hero__spec">
+                  <span className="t-label-mono-sm na-hero__spec-key">EXTRACTION</span>
+                  <span className="t-label-mono na-hero__spec-val">1:2.1 / 28s</span>
+                </div>
+                <div className="na-hero__spec">
+                  <span className="t-label-mono-sm na-hero__spec-key">AMBIENCE</span>
+                  <span className="t-label-mono na-hero__spec-val na-hero__spec-val--accent">33 RPM Vinyl</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Right — image */}
+            <div className="na-hero__image-col" data-reveal style={{ transitionDelay: "0.1s" }}>
+              {/* Rotating badge */}
+              <RotatingBadge
+                className="na-hero__badge"
+                size={112}
+                text="FRESHLY ROASTED · BREWED WITH LOVE · 02:00 AM ·"
               />
-              <div className="hero-floating-card card-glass">
-                <div className="floating-badge-icon">☕</div>
-                <div>
-                  <div className="floating-title">Signature Blend</div>
-                  <div className="floating-sub">Dark Honey & Cocoa Roast</div>
+
+              <div className="na-hero__img-wrap group">
+                <img
+                  src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=900&q=80"
+                  alt="Cinematic low-key espresso pour — Nocturne Atelier"
+                  className="na-hero__img"
+                  loading="eager"
+                />
+                <div className="na-hero__img-scrim" aria-hidden="true" />
+
+                {/* Floating label */}
+                <div className="na-hero__img-label">
+                  <div className="na-hero__img-label-main">
+                    <span className="t-label-mono-sm na-hero__img-microlot">Micro-Lot N°84</span>
+                    <span className="t-headline-md na-hero__img-name">Guji Highland Reserve</span>
+                  </div>
+                  <div className="na-hero__img-batch t-label-mono-sm">BATCH FRESH</div>
                 </div>
               </div>
             </div>
@@ -109,158 +190,291 @@ const LandingPage = () => {
         </div>
       </section>
 
-      {/* Featured / Bestsellers */}
-      <section className="section bestsellers-section">
-        <div className="container">
-          <div className="section-title">
-            <span className="section-badge">House Favorites</span>
-            <h2>Our Signature Bestsellers</h2>
-            <p>Discovered, loved, and celebrated every day by coffee lovers and pastry connoisseurs.</p>
+      {/* ════════════════════════════════════════
+          MARQUEE STRIP
+          ════════════════════════════════════════ */}
+      <section className="na-marquee-strip" aria-hidden="true">
+        <div className="na-marquee">
+          {[...marqueeItems, ...marqueeItems].map((item, i) => (
+            <span key={i} className="na-marquee__item">
+              <span className={`t-headline-md ${item.italic ? "na-marquee__italic" : ""}`}>
+                {item.label}
+              </span>
+              <span className="t-label-mono na-marquee__dot">·</span>
+            </span>
+          ))}
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════════
+          BESTSELLERS BENTO
+          ════════════════════════════════════════ */}
+      <section className="na-bento" id="bestsellers">
+        <div className="na-container">
+          <div className="na-bento__header" data-reveal>
+            <div>
+              <span className="t-label-mono-sm na-bento__eyebrow">Folio Selections · Autumn Menu</span>
+              <h2 className="t-headline-lg na-bento__title">Midnight Provisions</h2>
+            </div>
+            <p className="t-body-md na-bento__sub">
+              Extracted on bespoke Slayer espresso groups and gravity drip towers.
+              Pastries baked twice daily in our subterranean bakehouse.
+            </p>
           </div>
 
-          <div className="bestsellers-grid">
-            {bestsellers.map(item => (
-              <MenuCard key={item.id} item={item} />
+          <div className="na-bento__grid">
+            {bestsellers.map((item, idx) => (
+              <article
+                key={item.id}
+                className={`na-bento__card ${idx === 0 ? "na-bento__card--wide" : idx === 3 ? "na-bento__card--wide na-bento__card--wide-last" : ""}`}
+                data-reveal
+                style={{ transitionDelay: `${idx * 0.07}s` }}
+              >
+                <div className="na-bento__card-img-wrap group">
+                  <img
+                    src={item.image}
+                    alt={item.name}
+                    className="na-bento__card-img"
+                    loading="lazy"
+                  />
+                  {/* Tags */}
+                  {idx === 0 && (
+                    <div className="na-bento__card-tags">
+                      <span className="na-chip">Single Origin</span>
+                      <span className="na-chip">Chilled 18H</span>
+                    </div>
+                  )}
+                  <div className="na-bento__card-price t-label-mono">₹{item.price}</div>
+                </div>
+
+                <div className="na-bento__card-body">
+                  <div>
+                    <div className="na-bento__card-title-row">
+                      <h3 className={`t-headline-md ${idx === 0 ? "na-bento__card-name--italic" : ""}`}>
+                        {item.name}
+                      </h3>
+                      {item.isBestseller && (
+                        <span className="t-label-mono-sm na-bento__card-sig">SIGNATURE RECIPE</span>
+                      )}
+                    </div>
+                    <p className="t-body-md na-bento__card-desc">{item.description}</p>
+                  </div>
+
+                  <div className="na-bento__card-footer">
+                    <span className="t-label-mono-sm na-bento__card-notes">
+                      {item.tags?.join(" · ") || item.category}
+                    </span>
+                    <button
+                      type="button"
+                      className="na-bento__add-btn"
+                      onClick={() => handleAddToCart(item)}
+                      aria-label={`Add ${item.name} to cart`}
+                    >
+                      <span className="material-symbols-outlined" style={{ fontSize: 16 }}>add</span>
+                      <span>Add</span>
+                    </button>
+                  </div>
+                </div>
+              </article>
             ))}
           </div>
 
-          <div className="explore-menu-cta">
-            <Link to="/menu">
-              <Button variant="secondary" size="lg">
-                Explore Full 24-Item Menu
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <line x1="5" y1="12" x2="19" y2="12"></line>
-                  <polyline points="12 5 19 12 12 19"></polyline>
-                </svg>
-              </Button>
+          <div className="na-bento__cta" data-reveal>
+            <Link to={isAuthenticated ? "/menu" : "/login"} className="na-btn na-btn--ghost na-btn--md">
+              Browse full menu
+              <span className="na-btn-arrow">→</span>
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Why Choose Us */}
-      <section className="section why-choose-section">
-        <div className="container">
-          <div className="section-title">
-            <span className="section-badge">The Velvet Standard</span>
-            <h2>Why People Fall In Love With Us</h2>
-            <p>Every small detail — from grind size to steam temperature — is dialed to perfection.</p>
+      {/* ════════════════════════════════════════
+          OUR STORY — SPLIT EDITORIAL
+          ════════════════════════════════════════ */}
+      <section className="na-story">
+        <div className="na-container na-story__grid">
+          {/* Left — portrait */}
+          <div className="na-story__media" data-reveal>
+            <div className="na-story__img-wrap">
+              <img
+                src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=800&q=80"
+                alt="Barista executing precise pour-over — Nocturne Atelier"
+                className="na-story__img"
+                loading="lazy"
+              />
+              <div className="na-story__img-scrim" aria-hidden="true" />
+            </div>
+            {/* Floating archive quote */}
+            <blockquote className="na-story__quote-card">
+              <span className="t-label-mono-sm na-story__quote-meta">Archive Entry #001</span>
+              <p className="t-body-sm na-story__quote-text">
+                "We reject the idea that coffee belongs only to the sunrise rush.
+                Midnight clarity demands deliberate patience."
+              </p>
+            </blockquote>
           </div>
 
-          <div className="features-grid">
-            <div className="feature-card card-glass">
-              <div className="feature-icon-box">🌱</div>
-              <h3>Ethical Single-Origin Beans</h3>
-              <p>Directly sourced from sustainable family estates in Ethiopia, Colombia, and Costa Rica.</p>
-            </div>
-            <div className="feature-card card-glass">
-              <div className="feature-icon-box">🥐</div>
-              <h3>Pure French Butter Bakery</h3>
-              <p>Hand-laminated sourdough croissants and molten treats, baked fresh every morning.</p>
-            </div>
-            <div className="feature-card card-glass">
-              <div className="feature-icon-box">🕯️</div>
-              <h3>Cozy Warm Sanctuary</h3>
-              <p>Gentle acoustic notes, soothing oakwood textures, and fast complimentary Wi-Fi.</p>
-            </div>
-            <div className="feature-card card-glass">
-              <div className="feature-icon-box">🏆</div>
-              <h3>Champion Baristas</h3>
-              <p>Specialty coffee certified brewers dedicated to delivering your dream cup of espresso.</p>
+          {/* Right — text */}
+          <div className="na-story__text" data-reveal style={{ transitionDelay: "0.1s" }}>
+            <span className="t-label-mono-sm na-story__eyebrow">Colophon &amp; Origins</span>
+            <h2 className="t-headline-lg na-story__headline">
+              Born at <em className="na-story__headline-accent">2:00 AM</em>
+            </h2>
+
+            <p className="t-body-lg na-story__body">
+              Nocturne Atelier was founded inside a quiet basement laboratory in Indiranagar by three
+              nocturnal thinkers: a typographer, an acoustic engineer, and a Q-grader. Frustrated by coffee
+              houses that closed their heavy shutters just as our focus sharpened, we built a nocturnal sanctuary.
+            </p>
+            <p className="t-body-md na-story__body-sm">
+              Every extraction here honours the night dweller. We roast on a restored 1978 San Franciscan drum
+              roaster, profiling each bean to preserve origin acidity and complex florals without the astringent
+              punch of commercial caffeine. We pair this with curated vinyl pressings played through hand-wound
+              vacuum tube amplifiers.
+            </p>
+
+            {/* Stats */}
+            <div className="na-story__stats">
+              <div className="na-story__stat">
+                <span className="t-display-xl na-story__stat-num">18<span className="na-story__stat-unit t-headline-md">h</span></span>
+                <span className="t-label-mono-sm na-story__stat-label">Slow Extraction Cycle</span>
+              </div>
+              <div className="na-story__stat">
+                <span className="t-display-xl na-story__stat-num">100<span className="na-story__stat-unit t-headline-md">%</span></span>
+                <span className="t-label-mono-sm na-story__stat-label">Direct Trade Micro-Lots</span>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="section testimonials-section">
-        <div className="container">
-          <div className="section-title">
-            <span className="section-badge">Community Love</span>
-            <h2>Words from Our Regulars</h2>
-            <p>Read what our neighborhood coffee enthusiasts have to say about their visits.</p>
+      {/* ════════════════════════════════════════
+          REVIEWS — Pull Quotes
+          ════════════════════════════════════════ */}
+      <section className="na-reviews">
+        <div className="na-container">
+          <div className="na-reviews__header" data-reveal>
+            <span className="t-label-mono-sm na-reviews__eyebrow">Critical Folio · Dispatches</span>
+            <h2 className="t-headline-lg na-reviews__title">Echoes from the Salon</h2>
           </div>
 
-          <div className="testimonials-grid">
-            {testimonials.map(t => (
-              <div key={t.id} className="testimonial-card card-glass">
-                <div className="testimonial-rating">
-                  {"★".repeat(t.rating)}
+          <div className="na-reviews__grid">
+            {testimonials.map((t, i) => (
+              <blockquote
+                key={t.id}
+                className="na-review-card"
+                data-reveal
+                style={{ transitionDelay: `${i * 0.08}s` }}
+              >
+                <div>
+                  <span className="material-symbols-outlined na-review-card__icon">format_quote</span>
+                  <p className="t-headline-md na-review-card__quote">{t.quote}</p>
                 </div>
-                <p className="testimonial-quote">“{t.quote}”</p>
-                <div className="testimonial-author">
-                  <img src={t.avatar} alt={t.name} className="author-avatar" />
+                <footer className="na-review-card__footer">
                   <div>
-                    <h4 className="author-name">{t.name}</h4>
-                    <span className="author-role">{t.role}</span>
+                    <cite className="t-title-sm na-review-card__author">{t.author}</cite>
+                    <span className="t-label-mono-sm na-review-card__role">{t.role}</span>
                   </div>
-                </div>
-              </div>
+                  <span className="t-label-mono na-review-card__rating">
+                    {t.rating || t.tag}
+                  </span>
+                </footer>
+              </blockquote>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Opening Hours & Location Banner */}
-      <section className="section location-hours-section">
-        <div className="container">
-          <div className="location-hours-card">
-            <div className="location-content">
-              <span className="section-badge">Visit Today</span>
-              <h2>Step Into Our Sanctuary</h2>
-              <p className="location-desc">
-                Whether you need a quick morning cold brew or a relaxed corner for your evening reading,
-                our doors are always open with fresh roasts.
-              </p>
-
-              <div className="info-boxes-grid">
-                <div className="info-box">
-                  <div className="info-icon">📍</div>
-                  <div>
-                    <h4>Location</h4>
-                    <p>124 Artisan Alley, Coffee District, NY 10012</p>
-                  </div>
-                </div>
-
-                <div className="info-box">
-                  <div className="info-icon">⏰</div>
-                  <div>
-                    <h4>Operating Hours</h4>
-                    <p>Mon – Fri: 7:00 AM – 9:00 PM</p>
-                    <p>Sat – Sun: 8:00 AM – 10:00 PM</p>
-                  </div>
-                </div>
-
-                <div className="info-box">
-                  <div className="info-icon">📞</div>
-                  <div>
-                    <h4>Direct Contact</h4>
-                    <p>(555) 349-2831</p>
-                    <p>hello@velvetbrewcafe.com</p>
-                  </div>
-                </div>
+      {/* ════════════════════════════════════════
+          HOURS & LOCATION — Light paper section
+          ════════════════════════════════════════ */}
+      <section className="na-location" id="reservations">
+        <div className="na-container">
+          <div className="na-location__paper">
+            {/* Header */}
+            <div className="na-location__paper-head">
+              <div>
+                <span className="t-label-mono na-location__eyebrow">Physical Sanctuary · Bengaluru</span>
+                <h2 className="t-headline-lg na-location__title">Coordinates &amp; Nocturnal Hours</h2>
               </div>
-
-              <div className="location-cta">
-                <Link to="/reservation">
-                  <Button variant="primary" size="md">Reserve a Cozy Table</Button>
-                </Link>
-                <Link to="/about">
-                  <Button variant="outline" size="md">Learn Our Story</Button>
-                </Link>
+              <div className="na-location__valet t-label-mono-sm">
+                <span className="na-location__valet-dot" aria-hidden="true" />
+                VALET AVAILABLE AFTER 08:00 PM
               </div>
             </div>
 
-            <div className="location-image-side">
-              <img
-                src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=700&q=80"
-                alt="Velvet Brew Cafe storefront"
-                className="storefront-img"
-              />
+            <div className="na-location__grid" data-reveal>
+              {/* Hours + address */}
+              <div className="na-location__details">
+                <div className="na-location__hours-block">
+                  <span className="t-label-mono-sm na-location__hours-label">Operating Rhythm</span>
+                  <div className="na-location__hours-rows t-label-mono">
+                    <div className="na-location__hours-row">
+                      <strong>MON — THU</strong>
+                      <span>06:00 PM – 02:00 AM</span>
+                    </div>
+                    <div className="na-location__hours-row">
+                      <strong>FRI — SUN</strong>
+                      <span>06:00 PM – 04:00 AM</span>
+                    </div>
+                    <div className="na-location__hours-row na-location__hours-row--muted t-body-sm">
+                      <span>MIDNIGHT TASTING FLIGHT</span>
+                      <span>DAILY AT 00:00 AM</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <span className="t-label-mono-sm na-location__addr-label">Salon Address</span>
+                  <p className="t-body-lg na-location__addr">
+                    14 Rue de l'Étoile, 100ft Road,<br />
+                    Indiranagar, Bengaluru — 560038
+                  </p>
+                  <div className="t-label-mono na-location__contact">
+                    <div>Tel: +91 80 4920 1844</div>
+                    <div>Desk: concierge@nocturne.atelier</div>
+                  </div>
+                </div>
+
+                <div className="na-location__actions">
+                  <Link to="/reservation" className="na-btn na-btn--primary na-btn--md">
+                    Reserve a Table
+                  </Link>
+                </div>
+              </div>
+
+              {/* Map placeholder */}
+              <div className="na-location__map">
+                <img
+                  src="https://images.unsplash.com/photo-1524813686514-a57563d77965?auto=format&fit=crop&w=800&q=80"
+                  alt="Nocturne Atelier neighborhood — Indiranagar, Bengaluru"
+                  className="na-location__map-img"
+                  loading="lazy"
+                />
+                <div className="na-location__map-overlay" aria-hidden="true" />
+                <div className="na-location__map-pin">
+                  <div className="na-location__map-pin-icon">
+                    <span className="material-symbols-outlined" style={{ fontSize: 20 }}>location_on</span>
+                  </div>
+                  <div>
+                    <span className="t-title-sm na-location__map-name">Nocturne Salon</span>
+                    <span className="t-label-mono-sm na-location__map-sub">Indiranagar 100ft Rd Corner</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
+
+      {/* Toast */}
+      {toast.message && (
+        <Toast
+          message={toast.message}
+          type={toast.type}
+          onClose={() => setToast({ message: "", type: "success" })}
+        />
+      )}
     </div>
   );
 };

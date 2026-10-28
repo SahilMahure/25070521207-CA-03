@@ -1,0 +1,44 @@
+/* ── Nocturne Atelier Rotating Badge ─────────────────── */
+.na-badge-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.na-badge-ring {
+  position: absolute;
+  inset: 0;
+  animation: na-spin 22s linear infinite;
+}
+
+.na-badge-text {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  fill: var(--na-secondary);
+}
+
+.na-badge-center {
+  position: relative;
+  z-index: 1;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--na-bg-high);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-inset);
+}
+
+.na-badge-icon {
+  color: var(--na-primary-cnt);
+  font-size: 20px !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .na-badge-ring { animation: none; }
+}

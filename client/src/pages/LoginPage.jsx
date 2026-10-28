@@ -16,7 +16,7 @@ const LoginPage = () => {
 
   const [formData, setFormData] = useState({
     email: prefillEmail,
-    password: ""
+    password: "",
   });
   const [rememberMe, setRememberMe] = useState(true);
   const [errors, setErrors] = useState({});
@@ -26,8 +26,8 @@ const LoginPage = () => {
 
   const handleChange = (e) => {
     const { id, value } = e.target;
-    setFormData(prev => ({ ...prev, [id]: value }));
-    if (errors[id]) setErrors(prev => ({ ...prev, [id]: "" }));
+    setFormData((prev) => ({ ...prev, [id]: value }));
+    if (errors[id]) setErrors((prev) => ({ ...prev, [id]: "" }));
     if (errorMessage) setErrorMessage("");
   };
 
@@ -57,67 +57,87 @@ const LoginPage = () => {
       const res = await login({
         email: formData.email.trim(),
         password: formData.password,
-        rememberMe
+        rememberMe,
       });
 
       if (res.success) {
-        // Send user to original requested page or /menu
         navigate(destination, { replace: true });
       } else {
         setErrorMessage(res.message || "Invalid email or password.");
       }
     } catch (err) {
-      setErrorMessage(err.message || "Invalid credentials. Please verify your email and password.");
+      setErrorMessage(
+        err.message || "Invalid credentials. Please verify your email and password."
+      );
     } finally {
       setIsLoading(false);
     }
   };
 
   return (
-    <div className="auth-page-root animate-fade-in">
-      <div className="auth-card-wrapper card-glass">
-        <div className="auth-header">
-          <div className="auth-badge-icon">☕</div>
-          <h2>Welcome Back</h2>
-          <p>Sign in to customize your brew, manage orders, and reserve your favorite spot.</p>
+    <div className="na-auth-page animate-fade-in">
+      {/* Ambient warm glow */}
+      <div className="na-auth-glow" aria-hidden="true" />
+
+      <div className="na-auth-card">
+        {/* Header */}
+        <div className="na-auth-header">
+          <div className="na-auth-icon" aria-hidden="true">
+            <span className="material-symbols-outlined">local_cafe</span>
+          </div>
+          <h1 className="t-headline-md na-auth-title">Welcome back</h1>
+          <p className="t-body-md na-auth-subtitle">
+            Sign in to access your folio, order ahead, and reserve your table.
+          </p>
         </div>
 
         {successNotice && (
-          <div className="auth-alert alert-success">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <polyline points="20 6 9 17 4 12"></polyline>
+          <div className="na-auth-alert na-auth-alert--success" role="status">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              aria-hidden="true"
+            >
+              <polyline points="20 6 9 17 4 12" />
             </svg>
             {successNotice}
           </div>
         )}
 
         {errorMessage && (
-          <div className="auth-alert alert-error">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <circle cx="12" cy="12" r="10"></circle>
-              <line x1="12" y1="8" x2="12" y2="12"></line>
-              <line x1="12" y1="16" x2="12.01" y2="16"></line>
+          <div className="na-auth-alert na-auth-alert--error" role="alert">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              aria-hidden="true"
+            >
+              <circle cx="12" cy="12" r="10" />
+              <line x1="12" y1="8" x2="12" y2="12" />
+              <line x1="12" y1="16" x2="12.01" y2="16" />
             </svg>
             {errorMessage}
           </div>
         )}
 
-        <form onSubmit={handleSubmit} noValidate className="auth-form">
+        <form onSubmit={handleSubmit} noValidate className="na-auth-form">
           <Input
             id="email"
             type="email"
             label="Email Address"
-            placeholder="name@example.com"
+            placeholder="collector@nocturne.atelier"
             value={formData.email}
             onChange={handleChange}
             error={errors.email}
             required
-            icon={
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                <polyline points="22,6 12,13 2,6"></polyline>
-              </svg>
-            }
+            autoComplete="email"
           />
 
           <Input
@@ -129,27 +149,23 @@ const LoginPage = () => {
             onChange={handleChange}
             error={errors.password}
             required
-            icon={
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-              </svg>
-            }
+            autoComplete="current-password"
           />
 
-          <div className="auth-remember-row">
-            <label className="auth-remember-label">
+          <div className="na-auth-remember-row">
+            <label className="na-auth-checkbox-label">
               <input
                 type="checkbox"
                 checked={rememberMe}
                 onChange={(e) => setRememberMe(e.target.checked)}
+                className="na-checkbox"
               />
-              Remember me
+              <span className="t-label-sm">Remember me</span>
             </label>
 
             <button
               type="button"
-              className="auth-forgot-link"
+              className="na-auth-forgot-btn t-label-sm"
               onClick={() => setForgotModal(true)}
             >
               Forgot password?
@@ -161,53 +177,68 @@ const LoginPage = () => {
             variant="primary"
             size="lg"
             isLoading={isLoading}
-            className="auth-submit-btn"
+            className="na-auth-submit"
           >
-            Sign In to Café
+            Sign In to Atelier
           </Button>
         </form>
 
-        <div className="auth-footer">
-          Don't have an account yet?{" "}
-          <Link to="/signup" className="auth-link">
+        <p className="na-auth-footer-text t-body-sm">
+          Don't have a folio yet?{" "}
+          <Link to="/signup" className="na-auth-link">
             Create an account
           </Link>
-        </div>
+        </p>
       </div>
 
       {/* Forgot Password Modal Dialog */}
       {forgotModal && (
-        <div className="modal-backdrop" onClick={() => setForgotModal(false)}>
-          <div className="modal-card card-glass" onClick={(e) => e.stopPropagation()}>
-            <div className="modal-header">
-              <h3>Reset Password</h3>
+        <div className="na-modal-backdrop" onClick={() => setForgotModal(false)}>
+          <div
+            className="na-modal-card"
+            onClick={(e) => e.stopPropagation()}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="reset-title"
+          >
+            <div className="na-modal-header">
+              <h3 id="reset-title" className="t-headline-sm">
+                Reset Password
+              </h3>
               <button
                 type="button"
-                className="modal-close-btn"
+                className="na-modal-close"
                 onClick={() => setForgotModal(false)}
+                aria-label="Close dialog"
               >
-                &times;
+                <span className="material-symbols-outlined">close</span>
               </button>
             </div>
-            <p style={{ color: "var(--color-text-muted)", fontSize: "0.92rem", margin: "14px 0 20px" }}>
-              Please enter your registered email address. We will send you an OTP and recovery link to reset your account password.
+            <p className="t-body-md na-modal-description">
+              Please enter your registered email address. We will dispatch an OTP and recovery link to restore your account access.
             </p>
             <Input
               id="resetEmail"
               type="email"
               label="Registered Email"
-              placeholder="name@example.com"
+              placeholder="collector@nocturne.atelier"
               defaultValue={formData.email}
             />
-            <div style={{ display: "flex", gap: "10px", justifyContent: "flex-end", marginTop: "10px" }}>
-              <Button variant="outline" size="sm" onClick={() => setForgotModal(false)}>
+            <div className="na-modal-actions">
+              <Button
+                variant="secondary"
+                size="sm"
+                onClick={() => setForgotModal(false)}
+              >
                 Cancel
               </Button>
               <Button
                 variant="primary"
                 size="sm"
                 onClick={() => {
-                  alert("Password reset instructions have been dispatched to your email address!");
+                  alert(
+                    "Password reset instructions have been dispatched to your email address!"
+                  );
                   setForgotModal(false);
                 }}
               >

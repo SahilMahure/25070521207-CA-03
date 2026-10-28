@@ -1,5 +1,10 @@
 import "./Button.css";
 
+/**
+ * Nocturne Atelier Button
+ * variant: "primary" | "secondary" | "ghost" | "text"
+ * size:    "sm" | "md" | "lg"
+ */
 const Button = ({
   children,
   variant = "primary",
@@ -16,17 +21,15 @@ const Button = ({
       type={type}
       disabled={disabled || isLoading}
       onClick={onClick}
-      className={`btn btn-${variant} btn-${size} ${isLoading ? "btn-loading" : ""} ${className}`}
+      className={`na-btn na-btn--${variant} na-btn--${size} ${isLoading ? "na-btn--loading" : ""} ${className}`}
       {...props}
     >
       {isLoading ? (
-        <span className="btn-spinner-wrapper">
-          <span className="btn-spinner"></span>
-          <span>Loading...</span>
+        <span className="na-btn__spinner-wrap">
+          <span className="na-btn__spinner" aria-hidden="true" />
+          <span>Loading…</span>
         </span>
-      ) : (
-        children
-      )}
+      ) : children}
     </button>
   );
 };

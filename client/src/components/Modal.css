@@ -1,0 +1,90 @@
+/* ── Nocturne Atelier Modal ────────────────────────────── */
+.na-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(18, 13, 10, 0.82);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  animation: naModalFadeIn 0.22s ease-out;
+}
+
+.na-modal-container {
+  width: 100%;
+  background: var(--na-surface-high, #2f2925);
+  border: 1px solid var(--na-outline-var, #59413a);
+  border-radius: var(--r-xl, 20px);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.7), 0 0 1px 1px rgba(243, 230, 211, 0.08);
+  overflow: hidden;
+  animation: naModalScaleIn 0.26s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.na-modal-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 28px 16px;
+  border-bottom: 1px solid var(--na-outline-var, #59413a);
+}
+
+.na-modal-title {
+  font-family: var(--f-serif, "Newsreader", serif);
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--na-on-surface, #ece0db);
+  letter-spacing: -0.01em;
+}
+
+.na-modal-close-icon {
+  background: transparent;
+  border: none;
+  color: var(--na-on-surface-var, #e1bfb6);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  border-radius: 50%;
+  transition: background 0.15s, color 0.15s;
+}
+
+.na-modal-close-icon:hover {
+  background: var(--na-surface-highest, #3a3330);
+  color: var(--na-on-surface, #ece0db);
+}
+
+.na-modal-body {
+  padding: 24px 28px;
+  color: var(--na-on-surface-var, #e1bfb6);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.na-modal-foot {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 16px 28px 24px;
+  border-top: 1px solid rgba(89, 65, 58, 0.4);
+}
+
+@keyframes naModalFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes naModalScaleIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}

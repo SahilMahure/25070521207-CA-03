@@ -8,163 +8,120 @@ const Navbar = () => {
   const { user, isAuthenticated, logout } = useAuth();
   const { cartCount } = useCart();
   const navigate = useNavigate();
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 30);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  // Close mobile menu on route change
+  const close = () => setMobileOpen(false);
 
   const handleLogout = () => {
     logout();
-    setMobileMenuOpen(false);
+    close();
     navigate("/");
   };
 
-  const closeMenu = () => setMobileMenuOpen(false);
+  const initials = user?.name ? user.name[0].toUpperCase() : "U";
+  const firstName = user?.name?.split(" ")[0] || "Profile";
 
   return (
-    <header className={`navbar-header ${scrolled ? "scrolled" : ""}`}>
-      <div className="container navbar-container">
-        {/* Brand Logo */}
-        <Link to="/" className="navbar-logo" onClick={closeMenu}>
-          <div className="logo-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
-              <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
-              <line x1="6" y1="1" x2="6" y2="4"></line>
-              <line x1="10" y1="1" x2="10" y2="4"></line>
-              <line x1="14" y1="1" x2="14" y2="4"></line>
-            </svg>
-          </div>
-          <div className="logo-text">
-            <span className="brand-name">Velvet Brew</span>
-            <span className="brand-sub">Café & Roastery</span>
+    <header className={`na-navbar ${scrolled ? "na-navbar--scrolled" : "na-navbar--top"}`} id="site-nav">
+      <div className="na-navbar__inner na-container">
+
+        {/* ── Brand ── */}
+        <Link to="/" className="na-navbar__brand" onClick={close} aria-label="Nocturne Atelier home">
+          {/* Coffee cup SVG logo mark */}
+          <svg className="na-navbar__logo-icon" width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+            <circle cx="14" cy="14" r="13" fill="var(--na-primary-cnt)" opacity="0.15"/>
+            <path d="M8 10h12v7a5 5 0 0 1-5 5H13a5 5 0 0 1-5-5V10Z" stroke="var(--na-primary)" strokeWidth="1.5" fill="none"/>
+            <path d="M20 12h1.5a2.5 2.5 0 0 1 0 5H20" stroke="var(--na-primary)" strokeWidth="1.5" strokeLinecap="round"/>
+            <path d="M12 6c0-1.5 2-2 2-3.5" stroke="var(--na-secondary)" strokeWidth="1.5" strokeLinecap="round"/>
+          </svg>
+          <div className="na-navbar__brand-text">
+            <span className="na-navbar__brand-name t-headline-md">Nocturne Atelier</span>
           </div>
         </Link>
 
-        {/* Desktop Nav Links */}
-        <nav className="nav-links-desktop">
-          <NavLink to="/" className={({ isActive }) => `nav-link ${isActive ? "active" : ""}`} end>
-            Home
-          </NavLink>
-          <NavLink to="/menu" className={({ isActive }) => `nav-link ${isActive ? "active" : ""}`}>
-            Menu
-          </NavLink>
-          <NavLink to="/reservation" className={({ isActive }) => `nav-link ${isActive ? "active" : ""}`}>
-            Book a Table
-          </NavLink>
-          <NavLink to="/about" className={({ isActive }) => `nav-link ${isActive ? "active" : ""}`}>
-            About & Contact
-          </NavLink>
+        {/* ── Desktop Nav ── */}
+        <nav className="na-navbar__links" aria-label="Main navigation">
+          <NavLink to="/"           className={({ isActive }) => `na-nav-link ${isActive ? "na-nav-link--active" : ""}`} end onClick={close}>Home</NavLink>
+          <NavLink to="/menu"       className={({ isActive }) => `na-nav-link ${isActive ? "na-nav-link--active" : ""}`} onClick={close}>Menu</NavLink>
+          <NavLink to="/reservation" className={({ isActive }) => `na-nav-link ${isActive ? "na-nav-link--active" : ""}`} onClick={close}>Reserve</NavLink>
+          <NavLink to="/about"      className={({ isActive }) => `na-nav-link ${isActive ? "na-nav-link--active" : ""}`} onClick={close}>About</NavLink>
         </nav>
 
-        {/* Actions (Cart + Auth) */}
-        <div className="navbar-actions">
-          {/* Cart Icon */}
-          <Link to="/cart" className="cart-btn" aria-label="Shopping Cart">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <circle cx="9" cy="21" r="1"></circle>
-              <circle cx="20" cy="21" r="1"></circle>
-              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-            </svg>
-            {cartCount > 0 && <span className="cart-badge">{cartCount}</span>}
+        {/* ── Actions ── */}
+        <div className="na-navbar__actions">
+          {/* Cart */}
+          <Link to="/cart" className="na-navbar__cart" aria-label={`Cart, ${cartCount} items`}>
+            <span className="material-symbols-outlined" style={{ fontSize: 20 }}>local_cafe</span>
+            {cartCount > 0 && (
+              <span className="na-navbar__cart-badge" aria-live="polite">{cartCount}</span>
+            )}
           </Link>
 
-          {/* User Auth Section */}
+          {/* Auth */}
           {isAuthenticated ? (
-            <div className="user-menu-desktop">
-              <Link to="/profile" className="user-badge" title="My Profile & Orders">
-                <span className="user-avatar">{user?.name ? user.name[0].toUpperCase() : "U"}</span>
-                <span className="user-name">{user?.name?.split(" ")[0]}</span>
+            <div className="na-navbar__user">
+              <Link to="/profile" className="na-navbar__avatar" title="My Profile" onClick={close}>
+                <span>{initials}</span>
               </Link>
-              <button type="button" onClick={handleLogout} className="logout-btn">
+              <span className="na-navbar__firstname t-body-sm">{firstName}</span>
+              <button type="button" onClick={handleLogout} className="na-navbar__logout t-label-mono-sm">
                 Logout
               </button>
             </div>
           ) : (
-            <div className="auth-buttons-desktop">
-              <Link to="/login" className="btn-nav-login">
-                Login
-              </Link>
-              <Link to="/signup" className="btn-nav-signup">
-                Sign Up
-              </Link>
+            <div className="na-navbar__auth">
+              <Link to="/login" className="na-navbar__login t-body-sm">Sign In</Link>
+              <Link to="/signup" className="na-navbar__signup na-btn na-btn--primary na-btn--sm">Join</Link>
             </div>
           )}
 
-          {/* Mobile Hamburger Toggle */}
+          {/* Mobile Hamburger */}
           <button
             type="button"
-            className="mobile-hamburger"
-            onClick={() => setMobileMenuOpen(prev => !prev)}
-            aria-label="Toggle navigation menu"
+            className={`na-navbar__ham ${mobileOpen ? "na-navbar__ham--open" : ""}`}
+            onClick={() => setMobileOpen((p) => !p)}
+            aria-expanded={mobileOpen}
+            aria-controls="mobile-menu"
+            aria-label={mobileOpen ? "Close menu" : "Open menu"}
           >
-            {mobileMenuOpen ? (
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-              </svg>
-            ) : (
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <line x1="3" y1="12" x2="21" y2="12"></line>
-                <line x1="3" y1="6" x2="21" y2="6"></line>
-                <line x1="3" y1="18" x2="21" y2="18"></line>
-              </svg>
-            )}
+            <span /><span /><span />
           </button>
         </div>
       </div>
 
-      {/* Mobile Drawer */}
-      <div className={`mobile-nav-drawer ${mobileMenuOpen ? "open" : ""}`}>
-        <div className="mobile-nav-content">
-          <NavLink to="/" className="mobile-nav-link" onClick={closeMenu} end>
-            Home
-          </NavLink>
-          <NavLink to="/menu" className="mobile-nav-link" onClick={closeMenu}>
-            Menu & Order
-          </NavLink>
-          <NavLink to="/reservation" className="mobile-nav-link" onClick={closeMenu}>
-            Table Reservation
-          </NavLink>
-          <NavLink to="/about" className="mobile-nav-link" onClick={closeMenu}>
-            About & Contact
-          </NavLink>
-          <NavLink to="/cart" className="mobile-nav-link" onClick={closeMenu}>
-            Cart ({cartCount})
-          </NavLink>
+      {/* ── Mobile Menu ── */}
+      <div
+        id="mobile-menu"
+        className={`na-navbar__mobile ${mobileOpen ? "na-navbar__mobile--open" : ""}`}
+        aria-hidden={!mobileOpen}
+      >
+        <nav className="na-navbar__mobile-links" aria-label="Mobile navigation">
+          <NavLink to="/"            className="na-mobile-link" end onClick={close}>Home</NavLink>
+          <NavLink to="/menu"        className="na-mobile-link" onClick={close}>Menu</NavLink>
+          <NavLink to="/reservation" className="na-mobile-link" onClick={close}>Reserve a Table</NavLink>
+          <NavLink to="/about"       className="na-mobile-link" onClick={close}>About &amp; Contact</NavLink>
+          <NavLink to="/cart"        className="na-mobile-link" onClick={close}>Cart {cartCount > 0 && `(${cartCount})`}</NavLink>
 
-          <div className="mobile-auth-section">
-            {isAuthenticated ? (
-              <>
-                <Link to="/profile" className="mobile-profile-link" onClick={closeMenu}>
-                  <span className="user-avatar">{user?.name ? user.name[0].toUpperCase() : "U"}</span>
-                  <div>
-                    <div style={{ fontWeight: 600 }}>{user?.name}</div>
-                    <div style={{ fontSize: "0.82rem", color: "var(--color-text-light)" }}>View Profile & Orders</div>
-                  </div>
-                </Link>
-                <button type="button" onClick={handleLogout} className="mobile-logout-btn">
-                  Logout
-                </button>
-              </>
-            ) : (
-              <div className="mobile-auth-grid">
-                <Link to="/login" className="mobile-btn-login" onClick={closeMenu}>
-                  Login
-                </Link>
-                <Link to="/signup" className="mobile-btn-signup" onClick={closeMenu}>
-                  Sign Up
-                </Link>
-              </div>
-            )}
-          </div>
-        </div>
+          {isAuthenticated ? (
+            <>
+              <NavLink to="/profile" className="na-mobile-link" onClick={close}>Profile</NavLink>
+              <button type="button" className="na-mobile-link na-mobile-link--logout" onClick={handleLogout}>Logout</button>
+            </>
+          ) : (
+            <>
+              <NavLink to="/login"  className="na-mobile-link" onClick={close}>Sign In</NavLink>
+              <NavLink to="/signup" className="na-mobile-link na-mobile-link--cta" onClick={close}>Create Account</NavLink>
+            </>
+          )}
+        </nav>
       </div>
     </header>
   );
